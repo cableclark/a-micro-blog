@@ -1,0 +1,15 @@
+@extends("layouts.app")
+
+@section("content") 
+        
+                <div class="content">
+                    <div class="title m-b-md">
+                        Miss's Abini's music diary
+                    </div>
+
+                </div>
+ 
+@endsection
+
+       
+ 
