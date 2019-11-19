@@ -80,8 +80,8 @@ class PostsController extends Controller
 
     public function edit($slug)
     {
-        $post = Post::where('slug', $slug)->first();
 
+        $post = Post::where('slug', $slug)->first();
         
         return view ("admin.post.edit")->with('post', $post);
     }

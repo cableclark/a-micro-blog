@@ -21,7 +21,7 @@
                         <i> {{$post->created_at->format("F j, Y")}} </i></<i>
 
                         <div class="d-flex">
-
+                        
                             <a href="{{action('PostsController@edit', $post->slug)}}" class="mr-3 btn btn-primary"> Edit </a>
 
                             <form action="{{action('PostsController@destroy', $post->slug)}} " method="post"> 
