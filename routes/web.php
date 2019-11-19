@@ -11,28 +11,19 @@
 |
 */
 
-Route::get('/','PostsController@index');
-
-Route::get('post/{slug}', 'PostsController@show')->name('post');
 
 Auth::routes();
 
-Route::prefix('admin')->group(function () {
+Route::get('/login', 'DashboardController@index')->name('home');
+
+Route::get('/post/{$slug}', 'PostsController@show')->name('show-post');
+
+Route::put('/post/{$slug}', 'PostsController@destroy')->name('delete-post');
+
+Route::get('/post/{$slug}/edit', 'PostsController@edit')->name('edit-post');
+ 
+Route::get('/', 'PostsController@index')->name('admin');
     
-    Route::get('/', "DashboardController@index")->name("index");    
-
-    Route::get('post/create', "PostsController@create");
-
-    Route::post('post/save', "PostsController@save")->name('save-post');
-
-    Route::get('post/{post}/edit', "PostsController@edit")->name('edit-post');
     
-    Route::put('post/{post}', "PostsController@update")->name('update-post');
 
-    Route::delete('post/{post}', "PostsController@destroy")->name('delete-post');
 
-});
-
-// Route::resource('admin/posts', 'AdminController')->middleware('auth');
-
-// Route::resource('admin/images', 'AdminController')->middleware('auth');

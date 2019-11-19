@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
@@ -59,7 +60,7 @@ class PostsController extends Controller
     }
 
 
-    public function save (Request $request)
+    public function save (PostRequest $request)
     {           
             
             $post = new Post;
@@ -69,6 +70,8 @@ class PostsController extends Controller
             $post->body= $request->input('body');
 
             $post->slug = $post->makeSlug($request->input('title'));
+
+            $post->published = $request->input('published');
              
             $post->save();
             
@@ -83,16 +86,17 @@ class PostsController extends Controller
         return view ("admin.post.edit")->with('post', $post);
     }
 
-    public function update(Request $request, $slug)
+    public function update(PostRequest $request, $slug)
     {
         $post = Post::where('slug', $slug)->first();
          
-
         $post->title= $request->input('title');
-
+        
         $post->body= $request->input('body');
 
         $post->slug = $post->makeSlug($request->input('title'));
+        
+        $post->published = $request->input('published');
              
         $post->save();
         

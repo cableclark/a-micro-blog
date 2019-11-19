@@ -11104,3 +11104,12 @@ a.text-dark:focus {
   color: blue;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
+.main-post {
+  width: 70%;
+  font-size: 1.5rem;
+}
+
