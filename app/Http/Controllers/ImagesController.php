@@ -39,6 +39,25 @@ class ImagesController extends Controller
         return view("admin.images.create");
     }
 
+
+    public function save (Request $request)
+    {           
+            
+            $image = new Image();
+
+            $path = $request->file('image')->store("images");
+
+            $image->name= $request->input('name');
+
+            $image->description= $request->input('decription');
+
+            $image->path = $path; 
+
+            $image->save();
+            
+            return redirect("/");
+    }
+
  
 
 }

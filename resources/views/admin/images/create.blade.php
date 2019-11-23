@@ -4,7 +4,8 @@
         
                 <div class="content">
         
-                   <form method = {{route("uplaod-image") method="POST"}}>
+                   <form action = {{route("save-image")}} method="POST" enctype="multipart/form-data">
+                         @csrf
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Image description</label>
                             <textarea name = "description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -20,7 +21,6 @@
                         </div>
                     </form>
 
-                    
 
                 </div>
 

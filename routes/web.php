@@ -32,6 +32,8 @@ Route::put('/post/{slug}', 'PostsController@update')->name('update-post');
 Route::get('admin/image', 'ImagesController@index')->name('show-images');
 
 Route::get('admin/image/create', 'ImagesController@create')->name('upload-image');
+
+Route::post('admin/image/create', 'ImagesController@save')->name('save-image');
  
 
     
