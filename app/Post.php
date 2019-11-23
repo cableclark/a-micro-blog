@@ -2,6 +2,8 @@
 
 namespace App;
 
+use URLify;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -9,8 +11,9 @@ class Post extends Model
     //
 
     public function makeSlug (string $title) {
-     
-        $slug =  mb_strtolower(preg_replace('/[^\w_]+/u', '-', $title));
+
+        $slug = 
+        URLify::filter($title);
         
         return  $slug;
     }

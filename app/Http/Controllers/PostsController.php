@@ -47,7 +47,7 @@ class PostsController extends Controller
     }
 
 
-        /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -55,7 +55,7 @@ class PostsController extends Controller
      */
     public function create ()
     {
-        
+    
         return view("admin.post.create");
     }
 

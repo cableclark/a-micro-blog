@@ -26,6 +26,19 @@ class ImagesController extends Controller
         
         return view('admin.images.index')->with('images', $images);
     }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function create ()
+    {
+    
+        return view("admin.images.create");
+    }
+
  
 
 }

@@ -3,7 +3,7 @@
 @section("content") 
         
                 <div class="content">
-                    
+        
                     <div class="card" style="width: 18rem;">
                         <div class="card-header">
                             Images
@@ -15,7 +15,7 @@
                            @endforelse        
                     </div>       
 
-                    <a href= "{{route('upload-image')}}"><button type="button" class="btn btn-danger">Upload</button></a>
+                    <a href= "{{route('upload-image')}}"><button type="button" class="btn btn-success mt-2">Upload</button></a>
 
                 </div>
 
