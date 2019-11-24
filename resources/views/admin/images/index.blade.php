@@ -10,7 +10,16 @@
                         </div>
                         <ul class="list-group list-group-flush">
                            @forelse ($images as $image) 
-                                 <img src= "{{$image->filepath}}" title = "{{$image->title}}"}}</></li>
+                                 <li class="list-group-item"><img class="img-thumbnail" src="{{asset("/storage/" . $image->path)}}" title = "{{$image->name}}">
+                           
+                             <form action="{{action('ImagesController@destroy', $image->id)}} " method="post"> 
+                                @csrf
+                                @method('DELETE')
+
+                                <button type ="submit" class="btn btn-danger mt-2 mb-2"> Delete </button>
+                                
+                            </form>
+                            </li>
                            @empty <li class="list-group-item">{{ "No images" }} </li>
                            @endforelse        
                     </div>       

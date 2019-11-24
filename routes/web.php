@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/admin', 'DashboardController@index')->name('home');
 
 Route::get('/', 'PostsController@index')->name('admin');
+
+
     
 Route::get('/post/{slug}/edit', 'PostsController@edit')->name('edit-post');
 
@@ -29,11 +31,15 @@ Route::post('/post', 'PostsController@save')->name('save-post');
 
 Route::put('/post/{slug}', 'PostsController@update')->name('update-post');
 
+
+
 Route::get('admin/image', 'ImagesController@index')->name('show-images');
 
 Route::get('admin/image/create', 'ImagesController@create')->name('upload-image');
 
 Route::post('admin/image/create', 'ImagesController@save')->name('save-image');
+
+Route::delete('/image/{id}', 'ImagesController@destroy')->name('delete-image');
  
 
     

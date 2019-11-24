@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
@@ -45,19 +46,31 @@ class ImagesController extends Controller
             
             $image = new Image();
 
-            $path = $request->file('image')->store("images");
-
+            $path = $request->file('image')->store("public/images");
+            
             $image->name= $request->input('name');
 
             $image->description= $request->input('decription');
+            
+            $image->filename =  str_replace('images/',"",$path);
 
-            $image->path = $path; 
+            $image->path = str_replace("public/","",$path); 
 
             $image->save();
             
-            return redirect("/");
+            return redirect("/admin/image");
     }
 
+    public function destroy($id)
+    {
+        $image = Image::where('id', $id)->first();
+
+        Storage::delete( "images/" .  $image->filename);
+
+        $image->delete();
+
+        return redirect("/admin/image");;
+    }
  
 
 }
