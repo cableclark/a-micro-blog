@@ -24,28 +24,28 @@ class PostsController extends Controller
     {
         //
 
-        $posts = Post::all()->sortByDesc("created_at");;
-       
+        $posts = Post::published()->orderBy("created_at", "DESC")->get();
+        
         return view('posts.index')->with('posts', $posts);
+
     }
  
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($slug)
     {
         //
         
         $post = Post::where("slug", $slug)->first();
         
-        
         return view('posts.single')->with('post', $post);
-    }
 
+    }
 
     /**
      * Display the specified resource.
@@ -72,10 +72,18 @@ class PostsController extends Controller
             $post->slug = $post->makeSlug($request->input('title'));
 
             $post->published = $request->input('published');
+            
+            if ($request->file('image')) {
+    
+                $path = $request->file('image')->store("public/featured_images");
+                
+                $post->featured_image = str_replace("public/","",$path);
+            }
              
             $post->save();
             
             return redirect("/");
+
     }
 
     public function edit($slug)
@@ -97,6 +105,14 @@ class PostsController extends Controller
         $post->slug = $post->makeSlug($request->input('title'));
         
         $post->published = $request->input('published');
+
+        if ($request->file('image')) {
+    
+            $path = $request->file('image')->store("public/featured_images");
+                
+            $post->featured_image = str_replace("public/","",$path);
+        }
+        
              
         $post->save();
         

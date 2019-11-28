@@ -9,6 +9,11 @@
                 <div class="card-header">
 
                     <h2>  <a href= {{action('PostsController@show', $post->slug)}}> {{$post->title}} </a> </h2>
+                    @if($post->published == 1)   
+                         {{"Published"}}
+                    @else {{"Draft"}}
+
+                    @endif    
 
                 </div>
 
@@ -16,25 +21,37 @@
             
                     <div class="card-text">
 
-                        {!!$post->body!!}
+                        <div class="post-img float-left mr-4"> 
+                            <img class="img"  src="{{asset("/storage/" . $post->featured_image)}}" title = "{{$post->slug}}">  
+                        </div> 
 
-                        <i> {{$post->created_at->format("F j, Y")}} </i></<i>
+                        <div class="d-flex flex-column"> 
+                            <div>
+                                {!!$post->summary!!}
 
-                        <div class="d-flex">
-                        
-                            <a href="{{action('PostsController@edit', $post->slug)}}" class="mr-3 btn btn-primary"> Edit </a>
+                                <i> {{$post->created_at->format("F j, Y")}} </i>
+                            
+                            </div>
 
-                            <form action="{{action('PostsController@destroy', $post->slug)}} " method="post"> 
+                            <div class="d-flex justify-content-end mt-auto p-2 bd-highlight">
+                            
+                                <a href="{{action('PostsController@edit', $post->slug)}}" class="mr-3 btn btn-primary"> Edit </a>
+
+                                <form action="{{action('PostsController@destroy', $post->slug)}} " method="post"> 
                                 @csrf
                                 @method('DELETE')
 
-                                <button type ="submit" class="btn btn-danger"> Delete </button>
+                                    <button type ="submit" class="btn btn-danger"> Delete </button>
+                                    
+                                </form>
                                 
-                            </form>
+                            </div>
 
-                        </div>
+                        </div>  
 
                     </div> 
+
+                </div>
 
             </div>
     @endforeach

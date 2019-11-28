@@ -7,8 +7,8 @@
                    <form action = {{route("save-image")}} method="POST" enctype="multipart/form-data">
                          @csrf
 
-                          <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Image description</label>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Image name</label>
                             <input type= "text" name = "name" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 

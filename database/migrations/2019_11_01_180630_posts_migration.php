@@ -17,7 +17,7 @@ class PostsMigration extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->unique();
-            $table->string('body');
+            $table->text('body');
             $table->string('slug')->unique();
             $table->string('featured_image')->nullable();
             $table->timestamps();

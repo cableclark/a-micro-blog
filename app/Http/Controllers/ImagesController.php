@@ -43,7 +43,6 @@ class ImagesController extends Controller
 
     public function save (Request $request)
     {           
-            
             $image = new Image();
 
             $path = $request->file('image')->store("public/images");

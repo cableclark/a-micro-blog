@@ -7,7 +7,7 @@
         <h2>{{$title }}</h2>
     </div>
                 
-    <form action="{{$action }}" method="POST">
+    <form action="{{$action }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -28,10 +28,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1"> Post: </label>
-            {{-- <textarea class="form-control" name="body" id="editor" rows="10">.</textarea> --}}
-            
             <editor title="{{$body_value}}"></editor>
-            
         </div>
 
         @if ($errors->has('body')) 
@@ -41,11 +38,23 @@
                     </div>              
             @endforeach      
         @endif    
-        
+
         <div class="form-group">
-            <button type="submit" name ="published" class="btn btn-primary" value = "1">Publish</button>
-            <button type="submit" name ="published" class="btn btn-primary" value = "0">Save Draft</button>
-            <a href= "{{$route}}"><button type="button" class="btn btn-danger">Cancel</button></a>
+            <label for="exampleFormControlFile1"> Featured image:</label>
+            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+           @if ($errors->has('image')) 
+            @foreach ($errors->get("image") as $message) 
+                    <div class="alert alert-danger" role="alert">
+                    {{$message}}
+                    </div>              
+            @endforeach      
+        @endif   
+
+        <div class="form-group d-flex bd-highlight mb-3">
+            <button  type="submit" name ="published" class="btn btn-primary mr-3 p-2 bd-highlight" value = "0">Make Draft</button>
+            <a href= "{{$route}}"><button type="button" class="btn btn-danger p-2 bd-highlight">Cancel</button></a>
+            <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight" value = "1">Publish</button>
         </div>
 
     </form>  
