@@ -40,6 +40,10 @@ Route::get('admin/image/create', 'ImagesController@create')->name('upload-image'
 Route::post('admin/image/create', 'ImagesController@save')->name('save-image');
 
 Route::delete('/image/{id}', 'ImagesController@destroy')->name('delete-image');
+
+
+
+Route::post('comments', 'commentsController@save')->name('send-comment');
  
 
     

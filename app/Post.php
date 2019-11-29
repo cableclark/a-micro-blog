@@ -43,8 +43,8 @@ class Post extends Model
     {
          $summary = array_slice(explode(" ", $this->body), 0, 100);
          
-         array_pop($summary);
-         
+         $summary[count($summary)-1] = strip_tags($summary[count($summary)-1], '</p>') ;
+        
          return implode (" ", $summary). "...</p>";
     
     }

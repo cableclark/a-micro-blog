@@ -6,12 +6,12 @@
 
         <div class="card mb-3">
 
-                <div class="card-header">
+                <div class="card-header d-flex">
 
-                    <h2>  <a href= {{action('PostsController@show', $post->slug)}}> {{$post->title}} </a> </h2>
+                    <h2 class= "flex-grow-1 bd-highlight mb-0">  <a href= {{action('PostsController@show', $post->slug)}}> {{$post->title}} </a> </h2>
                     @if($post->published == 1)   
-                         {{"Published"}}
-                    @else {{"Draft"}}
+                         <div class="pt-2 p-2 mr-3 border border-primary text-primary rounded">{{"Published"}} </div>
+                    @else <div class=" pt-2 p-2 mr-3 border border-secondary rounded">{{"Draft"}} </div>
 
                     @endif    
 
@@ -19,9 +19,9 @@
 
                 <div class="card-body">
             
-                    <div class="card-text">
+                    <div class="card-text ">
 
-                        <div class="post-img float-left mr-4"> 
+                        <div class="post-img float-left mr-4 "> 
                             <img class="img"  src="{{asset("/storage/" . $post->featured_image)}}" title = "{{$post->slug}}">  
                         </div> 
 
