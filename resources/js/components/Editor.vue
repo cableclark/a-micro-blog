@@ -15,7 +15,8 @@
    
   export default {    
     props: [
-      "title"
+      "title",
+      "name"
     ],
     data () {
       return {

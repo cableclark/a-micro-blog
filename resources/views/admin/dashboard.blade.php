@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="{{route('create-post')}}"> <button class="m-3 btn btn-primary" > Create new </button></a>
 
     @foreach($posts as $post) 
 
+      
         <div class="card mb-3">
-
+                
+            
                 <div class="card-header d-flex">
 
                     <h2 class= "flex-grow-1 bd-highlight mb-0">  <a href= {{action('PostsController@show', $post->slug)}}> {{$post->title}} </a> </h2>

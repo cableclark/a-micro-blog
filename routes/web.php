@@ -13,9 +13,9 @@
 
 Auth::routes();
 
-Route::get('/admin', 'DashboardController@index')->name('home');
+Route::get('/admin', 'DashboardController@index')->name('admin');
 
-Route::get('/', 'PostsController@index')->name('admin');
+Route::get('/', 'PostsController@index')->name('home');
 
 
     
@@ -43,7 +43,7 @@ Route::delete('/image/{id}', 'ImagesController@destroy')->name('delete-image');
 
 
 
-Route::post('comments', 'commentsController@save')->name('send-comment');
+Route::post('comments', 'CommentsController@save')->name('send-comment');
  
 
     

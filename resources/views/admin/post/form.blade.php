@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1"> Post: </label>
-            <editor title="{{$body_value}}"></editor>
+            <editor name="body" title="{{$body_value}}"></editor>
         </div>
 
         @if ($errors->has('body')) 
@@ -43,6 +43,7 @@
             <label for="exampleFormControlFile1"> Featured image:</label>
             <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
         </div>
+
            @if ($errors->has('image')) 
             @foreach ($errors->get("image") as $message) 
                     <div class="alert alert-danger" role="alert">

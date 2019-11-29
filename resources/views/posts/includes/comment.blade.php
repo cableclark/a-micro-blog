@@ -5,12 +5,13 @@
         @csrf
 
         {{$method}}
-        
-        <div class="form-group row">
+        <h4> Остави коментар...</h4>
 
-            <label for="email" class=" col-form-label ">{{ __('E-Mail Address') }}</label>
+        <div class="form-group">
+
+            <label for="email">{{ __('Емејл адреса:') }}</label>
             
-            <input id="email" type="email" class="form-control p-4 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -21,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlTextarea1"> Post: </label>
+            <label for="editor"> Коментар:</label>
             <editor title=""></editor>
         </div>
 
@@ -33,6 +34,8 @@
             @endforeach      
         @endif    
 
+        {{$post_id}}
+        
         <div class="form-group d-flex bd-highlight mb-3">
             <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight">Publish</button>
         </div>

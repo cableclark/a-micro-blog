@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content") 
-        
+    
     @component('admin.post.form')
           @slot('title')
             {{"Create post"}}

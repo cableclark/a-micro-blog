@@ -48,5 +48,14 @@ class Post extends Model
          return implode (" ", $summary). "...</p>";
     
     }
-     
+
+     /**
+     * Get the comments for the blog post.
+     */
+
+    public function comments () {
+
+        return $this->hasMany('App\Comment');
+    }
+      
 }

@@ -1,25 +1,46 @@
 @extends('layouts.app')
 @section('content')
-        
-        <h2><a href= {{action('PostsController@show', $post->id)}}>
+     <div class="content">
+
+        <h2 class="headings"><a href= {{action('PostsController@show', $post->id)}}>
 
         {{$post->title}}</a></h2>
 
-        <p>{!!$post->body!!}</p>
+        <p ><i>{{$post->created_at->format("F j, Y")}}</i></p>
 
-        <p><i>{{$post->created_at->format("F j, Y")}}</i></p>
+         <div class="paragraphs"><p>{!!$post->body!!}</p> </div>
 
+        <hr>
+        <h4>Discussion:</h4>
+        @foreach($post->comments as $comment) 
+                <div class="comment">
+                
+                <p>{!!$comment->comment!!}</p>
+                <p ><i>{{$comment->created_at->format("F j, Y")}}</i></p>
 
-    @component('posts.includes.comment')
+                </div>
+        @endforeach
+        
 
-        @slot('action')
-            {{route('send-comment')}}
-        @endslot
+        @error('msg')
+            <div class="alert alert-primary"> Your post is sent!</div>
+        @enderror
 
-        @slot('method')
-            @method('POST')
-        @endslot
+        @component('posts.includes.comment')
 
-    @endcomponent
+            @slot('action')
+                {{route('send-comment')}}
+            @endslot
+
+            @slot('method')
+                @method('POST')
+            @endslot
+
+            @slot('post_id')
+                <input type="hidden" name="post_id" value="{{$post->id}}">
+            @endslot
+
+        @endcomponent
+    </div>
  
 @endsection 
