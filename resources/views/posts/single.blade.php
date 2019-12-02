@@ -2,9 +2,9 @@
 @section('content')
      <div class="content">
 
-        <h2 class="headings"><a href= {{action('PostsController@show', $post->id)}}>
+        <h2 class="headings">
 
-        {{$post->title}}</a></h2>
+        {{$post->title}}</h2>
 
         <p ><i>{{$post->created_at->format("F j, Y")}}</i></p>
 
@@ -14,10 +14,9 @@
         <h4>Discussion:</h4>
         @foreach($post->comments as $comment) 
                 <div class="comment">
-                
-                <p>{!!$comment->comment!!}</p>
-                <p ><i>{{$comment->created_at->format("F j, Y")}}</i></p>
-
+                    <h5>{!!$comment->title!!}</h5>
+                    <p>{!!$comment->comment!!}</p>
+                    <p> <i>Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</i></p>   
                 </div>
         @endforeach
         

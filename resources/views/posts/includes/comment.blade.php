@@ -9,6 +9,20 @@
 
         <div class="form-group">
 
+            <label for="email">{{ __('Име:') }}</label>
+            
+            <input id="email" type="text" class="form-control  @error('text') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="text" autofocus>
+
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        
+        </div>
+
+        <div class="form-group">
+
             <label for="email">{{ __('Емејл адреса:') }}</label>
             
             <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -20,6 +34,22 @@
             @enderror
         
         </div>
+
+
+        <div class="form-group">
+
+            <label for="email">{{ __('Наслов:') }}</label>
+            
+            <input id="email" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="text" autofocus>
+
+            @error('title')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        
+        </div>
+
 
         <div class="form-group">
             <label for="editor"> Коментар:</label>
@@ -35,7 +65,7 @@
         @endif    
 
         {{$post_id}}
-        
+
         <div class="form-group d-flex bd-highlight mb-3">
             <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight">Publish</button>
         </div>
