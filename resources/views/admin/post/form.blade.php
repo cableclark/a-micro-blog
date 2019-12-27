@@ -43,6 +43,14 @@
             <label for="exampleFormControlFile1"> Featured image:</label>
             <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
         </div>
+        
+        <div class="form-group"> 
+            <image-drawer>
+            @foreach($images as $image)
+                <img src="{{asset("/storage/" . $image->path)}}" title={{$image->name}}/> 
+            @endforeach
+            </image-drawer>  
+         </div>
 
            @if ($errors->has('image')) 
             @foreach ($errors->get("image") as $message) 
@@ -55,6 +63,7 @@
         <div class="form-group d-flex bd-highlight mb-3">
             <button  type="submit" name ="published" class="btn btn-primary mr-3 p-2 bd-highlight" value = "0">Make Draft</button>
             <a href= "{{$route}}"><button type="button" class="btn btn-danger p-2 bd-highlight">Cancel</button></a>
+
             <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight" value = "1">Publish</button>
         </div>
 

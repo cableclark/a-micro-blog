@@ -2,21 +2,20 @@
 @section('content')
      <div class="content">
 
-        <h2 class="headings">
+        <h2 class="headings">{{$post->title}}</h2>
 
-        {{$post->title}}</h2>
-
-        <p ><i>{{$post->created_at->format("F j, Y")}}</i></p>
+        <p><i>{{$post->created_at->format("F j, Y")}}</i></p>
 
          <div class="paragraphs"><p>{!!$post->body!!}</p> </div>
 
         <hr>
+
         <h4>Discussion:</h4>
         @foreach($post->comments as $comment) 
                 <div class="comment">
                     <h5>{!!$comment->title!!}</h5>
                     <p>{!!$comment->comment!!}</p>
-                    <p> <i>Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</i></p>   
+                    <p><i>Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</i></p>   
                 </div>
         @endforeach
         

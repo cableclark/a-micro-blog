@@ -21,7 +21,7 @@
                             <label for="exampleFormControlFile1">Example file input</label>
                             <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
                         </div>
-
+                            
                         <div class="form-group">
                             <button type="submit" class="btn btn-success mt-2">Upload</button>
                         </div>

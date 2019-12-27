@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Http\Requests\CommentRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegistered;
 
 class CommentsController extends Controller
 {
@@ -31,6 +33,8 @@ class CommentsController extends Controller
             $comment->comment = clean($request->input('body'));   
             
             $comment->save();
+
+            Mail::to("elenavselena@gmail.com")->send(new UserRegistered());
 
             return  redirect()->back()->withErrors(['msg'=>'Your comment has been sent']);
 

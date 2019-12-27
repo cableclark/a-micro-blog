@@ -1,6 +1,11 @@
 <template>
-    <div class="container">
+    <div>
        <button> Insert Image</button>
+       <div class="drawer">
+        <slot>
+
+        </slot>
+       </div>
     </div>
 </template>
 

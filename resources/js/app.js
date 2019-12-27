@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('editor', require('./components/Editor.vue').default);
+Vue.component('image-drawer', require('./components/ImageDrawer.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
