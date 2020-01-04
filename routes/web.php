@@ -18,6 +18,8 @@ Route::get('/admin', 'DashboardController@index')->name('admin');
 Route::get('/', 'PostsController@index')->name('home');
 
 
+Route::get('/getimages', 'ImagesController@getImages')->name('get-image');
+
     
 Route::get('/post/{slug}/edit', 'PostsController@edit')->name('edit-post');
 
@@ -40,6 +42,7 @@ Route::get('admin/image/create', 'ImagesController@create')->name('upload-image'
 Route::post('admin/image/create', 'ImagesController@save')->name('save-image');
 
 Route::delete('/image/{id}', 'ImagesController@destroy')->name('delete-image');
+
 
 
 

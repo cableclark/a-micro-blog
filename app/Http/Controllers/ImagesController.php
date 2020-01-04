@@ -12,7 +12,8 @@ class ImagesController extends Controller
 
     public function __construct () {
 
-        $this->middleware("auth");
+        $this->middleware("auth")->except(['getImages']);
+
     } 
 
      /**
@@ -70,6 +71,9 @@ class ImagesController extends Controller
 
         return redirect("/admin/image");;
     }
- 
+    
+    public function getImages () {
+        return $images = Image::all();
+    }
 
 }

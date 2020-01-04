@@ -2,12 +2,11 @@
 
 <div class="content">
 
-
     <div class="title m-b-md">
         <h2>{{$title }}</h2>
     </div>
                 
-    <form action="{{$action }}" method="POST" enctype="multipart/form-data">
+    <form action="{{$action}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -28,7 +27,8 @@
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1"> Post: </label>
-            <editor name="body" title="{{$body_value}}"></editor>
+            <editor name="body" value= '{{$body_value}}'>
+            </editor>
         </div>
 
         @if ($errors->has('body')) 
@@ -46,11 +46,9 @@
         
         <div class="form-group"> 
             <image-drawer>
-            @foreach($images as $image)
-                <img src="{{asset("/storage/" . $image->path)}}" title={{$image->name}}/> 
-            @endforeach
+              
             </image-drawer>  
-         </div>
+        </div>
 
            @if ($errors->has('image')) 
             @foreach ($errors->get("image") as $message) 
@@ -66,10 +64,8 @@
 
             <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight" value = "1">Publish</button>
         </div>
-
     </form>  
   
 
-    
 
 </div>        

@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .post-img {
   height: 200px;
   width: 300px;
@@ -10,7 +14,7 @@
 }
 
 .headings {
-  font-size: 4rem;
+  font-size: 6rem;
 }
 
  .paragraphs > p  {
