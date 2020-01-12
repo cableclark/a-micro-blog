@@ -22,5 +22,11 @@ body {
 }
 
 .content {
-  max-width: 800px;
+  max-width: 100vw;
+}
+
+#navig {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
 }

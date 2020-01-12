@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        
+    
         @include('layouts.navbar')    
         <div class="container-fluid">
          {{-- @include('layouts.sidebar')     --}}

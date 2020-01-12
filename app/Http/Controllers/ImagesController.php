@@ -44,6 +44,7 @@ class ImagesController extends Controller
 
     public function save (Request $request)
     {           
+            // Write validation..!!!      
             $image = new Image();
 
             $path = $request->file('image')->store("public/images");
@@ -73,7 +74,9 @@ class ImagesController extends Controller
     }
     
     public function getImages () {
+
         return $images = Image::all();
+
     }
 
 }
