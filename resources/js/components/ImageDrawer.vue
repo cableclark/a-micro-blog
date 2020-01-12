@@ -1,15 +1,19 @@
 <template>
     <div>
-       <button @click.prevent="open=!open"> Insert Image </button>
+       <button @click.prevent="open=!open" class="btn btn-primary mr-3 p-2 bd-highlight"> Insert Image </button>
        <transition name="show">
        <div v-if="open" class="drawer" > 
-            <img 
-            @click="addImages(image.path)" 
-            v-for="image in images" 
-            v-bind:key="image.name" 
-            :src="image.path" 
-            name="image.name" 
-            class="drawer-image"> 
+           <div class="image-container">
+                <img 
+                @click="addImages(image.path)" 
+                v-for="image in images" 
+                v-bind:key="image.name" 
+                :src="image.path" 
+                name="image.name" 
+                class="drawer-image"> 
+            </div>
+
+            <button @click.prevent="open=!open"  class="btn btn-danger p-2 bd-highligh"  > Cancel </button>
        </div>
        </transition>
     </div>
@@ -46,8 +50,10 @@ import { EventBus } from './EventBus.js';
             },
           
             addImages(image) {
-            // Send the event on a channel (i-got-clicked) with a payload (the click count.) 
+            // Send the event on a channel (i-got-clicked) with a payload (the click count.)
                 EventBus.$emit('addImages', image);
+                this.open=!this.open;
+
             }
 
         }
@@ -57,21 +63,28 @@ import { EventBus } from './EventBus.js';
 
 <style>
 .drawer {
-    background-color:black;
+    background-color: rgba(12,12,12, 0.5);
     position: absolute;
     top: 0;
-    left: 90vw;
-    width: 10vw;
+    left: 0vw;
+    width: 100vw;
     height: 100vh;
+    color:white;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:white;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .drawer-image {
-    width: 90%;
+    width: 200px;
     margin: 1rem;
 }
 
@@ -80,7 +93,7 @@ import { EventBus } from './EventBus.js';
 }
 
 .show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translate(30vw);
+  transform: translate(100vw);
 }
 
 </style>

@@ -1854,6 +1854,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // Import this component
  // Import editor css
 
@@ -1876,7 +1877,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     _EventBus_js__WEBPACK_IMPORTED_MODULE_2__["EventBus"].$on('addImages', function (name) {
-      _this.content = _this.content + "<img src=\"".concat(name, "\">");
+      _this.content += "<img src=\"".concat(name, "\" class=\"img-fluid\">");
     });
   }
 });
@@ -1935,6 +1936,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1962,8 +1967,9 @@ __webpack_require__.r(__webpack_exports__);
       window.console.log(path);
     },
     addImages: function addImages(image) {
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.) 
+      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
       _EventBus_js__WEBPACK_IMPORTED_MODULE_1__["EventBus"].$emit('addImages', image);
+      this.open = !this.open;
     }
   }
 });
@@ -6446,7 +6452,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.drawer {\n    background-color:black;\n    position: absolute;\n    top: 0;\n    left: 90vw;\n    width: 10vw;\n    height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    color:white;\n}\n.drawer-image {\n    width: 90%;\n    margin: 1rem;\n}\n.show-enter-active, .show-leave-active {\n  -webkit-transition: -webkit-transform .5s;\n  transition: -webkit-transform .5s;\n  transition: transform .5s;\n  transition: transform .5s, -webkit-transform .5s;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  -webkit-transform: translate(30vw);\n          transform: translate(30vw);\n}\n\n", ""]);
+exports.push([module.i, "\n.drawer {\n    background-color: rgba(12,12,12, 0.5);\n    position: absolute;\n    top: 0;\n    left: 0vw;\n    width: 100vw;\n    height: 100vh;\n    color:white;\n    z-index: 100;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n}\n.image-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n}\n.drawer-image {\n    width: 200px;\n    margin: 1rem;\n}\n.show-enter-active, .show-leave-active {\n  -webkit-transition: -webkit-transform .5s;\n  transition: -webkit-transform .5s;\n  transition: transform .5s;\n  transition: transform .5s, -webkit-transform .5s;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  -webkit-transform: translate(100vw);\n          transform: translate(100vw);\n}\n\n", ""]);
 
 // exports
 
@@ -39923,7 +39929,14 @@ var render = function() {
     [
       _c("trumbowyg", {
         staticClass: "form-control",
-        attrs: { value: _vm.content, config: _vm.config, name: "body" }
+        attrs: { value: _vm.content, config: _vm.config, name: "body" },
+        model: {
+          value: _vm.content,
+          callback: function($$v) {
+            _vm.content = $$v
+          },
+          expression: "content"
+        }
       })
     ],
     1
@@ -39990,6 +40003,7 @@ var render = function() {
       _c(
         "button",
         {
+          staticClass: "btn btn-primary mr-3 p-2 bd-highlight",
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -40002,23 +40016,39 @@ var render = function() {
       _vm._v(" "),
       _c("transition", { attrs: { name: "show" } }, [
         _vm.open
-          ? _c(
-              "div",
-              { staticClass: "drawer" },
-              _vm._l(_vm.images, function(image) {
-                return _c("img", {
-                  key: image.name,
-                  staticClass: "drawer-image",
-                  attrs: { src: image.path, name: "image.name" },
+          ? _c("div", { staticClass: "drawer" }, [
+              _c(
+                "div",
+                { staticClass: "image-container" },
+                _vm._l(_vm.images, function(image) {
+                  return _c("img", {
+                    key: image.name,
+                    staticClass: "drawer-image",
+                    attrs: { src: image.path, name: "image.name" },
+                    on: {
+                      click: function($event) {
+                        return _vm.addImages(image.path)
+                      }
+                    }
+                  })
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger p-2 bd-highligh",
                   on: {
                     click: function($event) {
-                      return _vm.addImages(image.path)
+                      $event.preventDefault()
+                      _vm.open = !_vm.open
                     }
                   }
-                })
-              }),
-              0
-            )
+                },
+                [_vm._v(" Cancel ")]
+              )
+            ])
           : _vm._e()
       ])
     ],

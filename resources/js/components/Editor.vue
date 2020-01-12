@@ -3,6 +3,7 @@
     <trumbowyg  
         :value="content" 
         :config="config" 
+        v-model="content"
         class="form-control" 
         name="body">
      </trumbowyg>
@@ -35,7 +36,7 @@
     },  
     mounted() {
         EventBus.$on('addImages', (name) => {
-          this.content = this.content + `<img src="${name}">`;
+          this.content +=`<img src="${name}" class="img-fluid">`;
         })
     
       }

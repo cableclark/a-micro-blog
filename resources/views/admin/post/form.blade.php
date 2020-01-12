@@ -39,9 +39,15 @@
             @endforeach      
         @endif    
 
-        <div class="form-group">
-            <label for="exampleFormControlFile1"> Featured image:</label>
-            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+        
+            
+        
+       <div class="form-group">
+            <div class="custom-file">
+                <label for="FormControlFile"> Featured image:</label>
+                <input type="file"  name="image"  class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
         </div>
         
         <div class="form-group"> 
