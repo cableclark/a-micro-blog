@@ -2,7 +2,8 @@
     <div>
        <button @click.prevent="open=!open" class="btn btn-primary mr-3 p-2 bd-highlight"> Insert Image </button>
        <transition name="show">
-       <div v-if="open" class="drawer" > 
+       <div v-if="open" class="drawer"> 
+
            <div class="image-container">
                 <img 
                 @click="addImages(image.path)" 
@@ -63,15 +64,15 @@ import { EventBus } from './EventBus.js';
 
 <style>
 .drawer {
-    background-color: rgba(12,12,12, 0.5);
+    background-color: rgba(12,12,12, 0.8);
     position: absolute;
     top: 0;
     left: 0vw;
     width: 100vw;
     height: 100vh;
     color:white;
-    z-index: 100;
     display: flex;
+    z-index: 100000000;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -81,10 +82,11 @@ import { EventBus } from './EventBus.js';
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .drawer-image {
-    width: 200px;
+    width: 150px;
     margin: 1rem;
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Image;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ImageRequest;
 
 class ImagesController extends Controller
 {
@@ -21,10 +22,11 @@ class ImagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
-        $images = Image::all();
+        $images = Image::orderBy("created_at", "DESC")->get();
         
         return view('admin.images.index')->with('images', $images);
     }
@@ -35,16 +37,21 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function create ()
     {
     
         return view("admin.images.create");
     }
+    /**
+     * Save the specified resource.
+     *
+     * @param  ImageRequest $request
+     * @return \Illuminate\Http\Response
+     */  
 
-
-    public function save (Request $request)
+    public function save (ImageRequest $request)
     {           
-            // Write validation..!!!      
             $image = new Image();
 
             $path = $request->file('image')->store("public/images");
