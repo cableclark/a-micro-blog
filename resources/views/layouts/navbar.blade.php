@@ -1,6 +1,7 @@
+@auth
+
 <nav class="navbar navbar-dark sticky-top bg-dark p-20 float-left " id="navig">
 
-    @auth
     <ul class="navbar-nav ml-auto">
 
         <a class="p-2" href="{{route('admin')}}"> <li>Dashboard</li></a>
@@ -18,6 +19,7 @@
         </form>
 
     </ul >            
-@endauth   
 
 </nav>
+
+@endauth   

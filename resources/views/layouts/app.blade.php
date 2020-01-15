@@ -21,12 +21,13 @@
 </head>
 <body>
     <div id="app">
-    
-        @include('layouts.navbar')    
+            
+        @include('layouts.navbar')
+
         <div class="container-fluid">
          {{-- @include('layouts.sidebar')     --}}
             <main class="py-4">
-                <div class="container">
+                <div class="post-container">
                     @yield('content')
                 </div>
             </main>

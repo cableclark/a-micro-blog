@@ -22,11 +22,18 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+      
 
         $posts = Post::published()->orderBy("created_at", "DESC")->get();
+
+        $firstPost= $posts[0];
         
-        return view('posts.index')->with('posts', $posts);
+        $posts->forget(0);
+
+        
+        return view('posts.index')->with(
+            ['firstPost'=> $firstPost, 
+            'posts'=>$posts]);
 
     }
  
