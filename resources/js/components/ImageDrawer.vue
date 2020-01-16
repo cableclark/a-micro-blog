@@ -14,7 +14,7 @@
                 class="drawer-image"> 
             </div>
 
-            <button @click.prevent="open=!open"  class="btn btn-danger p-2 bd-highligh"  > Cancel </button>
+            <button @click.prevent="open=!open"  class="btn btn-danger p-2 bd-highligh"> Cancel </button>
        </div>
        </transition>
     </div>

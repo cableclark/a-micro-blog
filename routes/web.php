@@ -17,9 +17,9 @@ Route::get('/admin', 'DashboardController@index')->name('admin');
 
 Route::get('/', 'PostsController@index')->name('home');
 
-
 Route::get('/getimages', 'ImagesController@getImages')->name('get-image');
 
+Route::get('/getPosts', 'PostsController@getPosts')->name('get-posts');
     
 Route::get('/post/{slug}/edit', 'PostsController@edit')->name('edit-post');
 

@@ -12,7 +12,7 @@ class PostsController extends Controller
 
     public function __construct () {
 
-        $this->middleware("auth")->except(["index", "show"]);
+        $this->middleware("auth")->except(["index", "show", "getPosts"]);
     } 
 
     /**
@@ -22,7 +22,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-      
+    
+        return view('posts.index');
+    }
+
+    
+    
+     public function getPosts () {
 
         $posts = Post::published()->orderBy("created_at", "DESC")->get();
 
@@ -30,13 +36,11 @@ class PostsController extends Controller
         
         $posts->forget(0);
 
-        
-        return view('posts.index')->with(
-            ['firstPost'=> $firstPost, 
-            'posts'=>$posts]);
-
-    }
- 
+        return  [
+            'firstPost'=> $firstPost, 
+            'posts'=>$posts
+            ];
+     }   
     /**
      * Display the specified resource.
      *

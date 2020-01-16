@@ -3,7 +3,8 @@
 
 <div class="main-post">
     <div class="content">
-        <div class="featured-post">
+        <front-page> </front-page> 
+        {{-- <div class="featured-post">
             <img class="featured-image"  src="{{asset("/storage/" . $firstPost->featured_image)}}" title = "{{$firstPost->slug}}">     
             <div>        
                 <h2 class="headings "><a href= {{action('PostsController@show', $firstPost->slug)}} >{{$firstPost->title}}</a></h2>
@@ -20,7 +21,7 @@
                 <p><a  href= {{action('PostsController@show', $post->slug)}}>Прочитај повеќе...</a></p>
                 <hr class="mb-5">
             @endforeach
-        </div>
+        </div> --}}
 
     </div>
 </div>
