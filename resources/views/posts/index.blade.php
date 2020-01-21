@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="main-post">
-    <div class="content">
+
+
         <front-page> </front-page> 
+
         {{-- <div class="featured-post">
             <img class="featured-image"  src="{{asset("/storage/" . $firstPost->featured_image)}}" title = "{{$firstPost->slug}}">     
             <div>        
@@ -21,9 +22,8 @@
                 <p><a  href= {{action('PostsController@show', $post->slug)}}>Прочитај повеќе...</a></p>
                 <hr class="mb-5">
             @endforeach
-        </div> --}}
+        </div>
+    </div> --}}
 
-    </div>
-</div>
 
 @endsection 

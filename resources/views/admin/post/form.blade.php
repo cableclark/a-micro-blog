@@ -1,6 +1,6 @@
 {{--  Recieves three parameters $title, $action, $method $title_value, $body_value, $route --}}
 
-<div class="content">
+<div class="dash-container">
 
     <div class="title m-b-md">
         <h2>{{ $title }}</h2>

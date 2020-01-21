@@ -18,7 +18,6 @@
                     <p><i>Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</i></p>   
                 </div>
         @endforeach
-        
 
         @error('msg')
             <div class="alert alert-primary"> Your post is sent!</div>

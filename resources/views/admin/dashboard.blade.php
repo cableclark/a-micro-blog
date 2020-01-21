@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="dash-container">
+
     <a href="{{route('create-post')}}"> <button class="m-3 btn btn-primary" > Create new </button></a>
 
     @foreach($posts as $post) 
@@ -57,4 +60,5 @@
 
             </div>
     @endforeach
+ </div>   
 @endsection 

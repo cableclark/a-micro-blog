@@ -1,9 +1,8 @@
-@extends("layouts.app")
+@extends("layouts.dashboard")
 
 @section("content") 
 
     @component('admin.post.form')
-
         @slot('title')
             {{'Edit post'}}
         @endslot

@@ -32,7 +32,7 @@ import { EventBus } from './EventBus.js';
             }
         },
         created() {
-            axios.get(`http://127.0.0.1:8000/getimages`)
+            axios.get(`/getimages`)
                 .then(response => {
                 // JSON responses are automatically parsed.
                 response.data.forEach ((item) => {

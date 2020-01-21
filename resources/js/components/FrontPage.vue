@@ -24,7 +24,7 @@
             }
         },
         created() {
-            axios.get(`http://127.0.0.1:8000/getPosts`)
+            axios.get(`/getPosts`)
                 .then(response => {
                 // JSON responses are automatically parsed.
                 window.console.log(response.data)
