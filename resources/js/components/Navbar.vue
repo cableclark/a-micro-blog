@@ -3,18 +3,18 @@
 
     <a href="/"><div class=navbar__logo> Miss Albini's music diary</div></a>
 
-    <div @click="open=!open" class="navbar__toggler">Menu</div>
+    <div @click="open=!open" class="navbar__toggler">Мени</div>
 
     <transition name="menu">
     
         <ul @click="open=!open" v-if="open" class="navbar__menu">
-            <li class="navbar__item navbar__menu__heading">Menu</li>
+            <li class="navbar__item navbar__menu__heading">Навигација</li>
             
-            <a class="navbar__item" href="/"> <li>Posts</li></a>
+            <a class="navbar__item" href="/"> <li>Текстови</li></a>
 
-            <a class="navbar__item" href="/about"> <li>About</li></a>
+            <a class="navbar__item" href="/about"> <li>За мене</li></a>
             
-            <a class="navbar__item" href="/contact"> <li>Contact</li></a>
+            <a class="navbar__item" href="/contact"> <li>Контакт</li></a>
 
         </ul >
 

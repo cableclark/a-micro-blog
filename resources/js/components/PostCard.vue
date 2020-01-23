@@ -1,11 +1,15 @@
 <template>
     <div class="card">
-            <img class="card__image" :src="image" alt="Card image cap">
+            <a v-bind:href="link">
+                <div class="card_img-contianer">
+                    <img :src="image" alt="Card image cap">
+                </div>
+             </a>
             <div class="card__text">
                 <p class="card__text__date">{{formatDate(post.created_at)}} </p>
-                <h2><a v-bind:href="link">{{post.title}}</a></h2>
-                <div v-if="open" v-html="post.body"> </div>
                 <a v-bind:href="link">
+                    <h2>{{post.title}}</h2>
+                    <div v-if="open" v-html="post.body"> </div>
                     <img src="/images/more.svg" class="card__text__icon" alt="">
                 </a>
             </div>
@@ -13,6 +17,7 @@
 </template>
 
 <script>
+
 import axios from 'axios';
 import { EventBus } from './EventBus.js';
 import moment from 'moment';
@@ -24,13 +29,12 @@ import moment from 'moment';
         data: function () {
             return {
                 open: false,
-
             }
         },
 
         computed: {
              image () {
-                 return "/storage/" + this.post.featured_image;
+                 return "/storage/" + this.post.tumbnail;
              } ,
              link () {
                  return "/post/" + this.post.slug;
@@ -70,7 +74,6 @@ import moment from 'moment';
 }
 
 .card__text__date {
-    font-family: var(--text-font);
     padding-left:0.3em;
     font-size: 0.7em;
 }
@@ -78,29 +81,9 @@ import moment from 'moment';
     padding: 1em;
 }
 
-img {
-    width: 100%;
-     border-radius: 5px;
-}
-
-h2 {
-    color: var(--headings-color); 
-    font-family: var(--headings-font);
-    font-size: 2em;
-    padding: 0;
-    margin:0;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.drawer-image {
-    width: 150px;
-    margin: 1rem;
+.card_img-contianer {
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .show-enter-active, .show-leave-active {

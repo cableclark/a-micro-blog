@@ -26,6 +26,7 @@ Vue.component('image-drawer', require('./components/ImageDrawer.vue').default);
 Vue.component('front-page', require('./components/FrontPage.vue').default);
 Vue.component('Navbar', require('./components/Navbar.vue').default);
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -34,4 +35,5 @@ Vue.component('Navbar', require('./components/Navbar.vue').default);
 
 const app = new Vue({
     el: '#app',
+    
 });

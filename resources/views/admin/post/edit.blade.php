@@ -20,7 +20,7 @@
         @endslot
 
         @slot( 'body_value' )
-            {!!$post->body!!}
+            {{$post->body}}
         @endslot
 
         @slot( 'route' )

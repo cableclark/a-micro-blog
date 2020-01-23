@@ -1855,6 +1855,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // Import this component
  // Import editor css
 
@@ -2101,6 +2102,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2115,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     image: function image() {
-      return "/storage/" + this.post.featured_image;
+      return "/storage/" + this.post.tumbnail;
     },
     link: function link() {
       return "/post/" + this.post.slug;
@@ -6663,7 +6668,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card[data-v-1324358a] {\n    background-color: var(--background-color);\n    margin-bottom: 1em; \n    border-radius: 5px;\n}\n.card__text[data-v-1324358a] {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    padding: 1em;\n    text-transform: uppercase;\n}\n.card__text__icon[data-v-1324358a] {\n    float:right;\n    width: 1.2em;\n    padding-top:0.5em;\n    cursor: pointer;\n}\n.card__text__date[data-v-1324358a] {\n    font-family: var(--text-font);\n    padding-left:0.3em;\n    font-size: 0.7em;\n}\n.text[data-v-1324358a] {\n    padding: 1em;\n}\nimg[data-v-1324358a] {\n    width: 100%;\n     border-radius: 5px;\n}\nh2[data-v-1324358a] {\n    color: var(--headings-color); \n    font-family: var(--headings-font);\n    font-size: 2em;\n    padding: 0;\n    margin:0;\n}\n.image-container[data-v-1324358a] {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    flex-wrap: wrap;\n}\n.drawer-image[data-v-1324358a] {\n    width: 150px;\n    margin: 1rem;\n}\n.show-enter-active[data-v-1324358a], .show-leave-active[data-v-1324358a] {\n    opacity:1;\n}\n.show-enter[data-v-1324358a], .show-leave-to[data-v-1324358a] /* .fade-leave-active below version 2.1.8 */ {\n   opacity: 0;\n}\n\n", ""]);
+exports.push([module.i, "\n.card[data-v-1324358a] {\n    background-color: var(--background-color);\n    margin-bottom: 1em; \n    border-radius: 5px;\n}\n.card__text[data-v-1324358a] {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    padding: 1em;\n    text-transform: uppercase;\n}\n.card__text__icon[data-v-1324358a] {\n    float:right;\n    width: 1.2em;\n    padding-top:0.5em;\n    cursor: pointer;\n}\n.card__text__date[data-v-1324358a] {\n    padding-left:0.3em;\n    font-size: 0.7em;\n}\n.text[data-v-1324358a] {\n    padding: 1em;\n}\n.card_img-contianer[data-v-1324358a] {\n    overflow: hidden;\n    border-radius: 5px;\n}\n.show-enter-active[data-v-1324358a], .show-leave-active[data-v-1324358a] {\n    opacity:1;\n}\n.show-enter[data-v-1324358a], .show-leave-to[data-v-1324358a] /* .fade-leave-active below version 2.1.8 */ {\n   opacity: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -57833,17 +57838,22 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("trumbowyg", {
-        staticClass: "form-control",
-        attrs: { value: _vm.content, config: _vm.config, name: "body" },
-        model: {
-          value: _vm.content,
-          callback: function($$v) {
-            _vm.content = $$v
-          },
-          expression: "content"
-        }
-      })
+      _c(
+        "trumbowyg",
+        {
+          staticClass: "form-control",
+          attrs: { value: _vm.content, config: _vm.config, name: "body" },
+          model: {
+            value: _vm.content,
+            callback: function($$v) {
+              _vm.content = $$v
+            },
+            expression: "content"
+          }
+        },
+        [_vm._t("default")],
+        2
+      )
     ],
     1
   )
@@ -58041,7 +58051,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Menu")]
+        [_vm._v("Мени")]
       ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "menu" } }, [
@@ -58060,23 +58070,23 @@ var render = function() {
                 _c(
                   "li",
                   { staticClass: "navbar__item navbar__menu__heading" },
-                  [_vm._v("Menu")]
+                  [_vm._v("Навигација")]
                 ),
                 _vm._v(" "),
                 _c("a", { staticClass: "navbar__item", attrs: { href: "/" } }, [
-                  _c("li", [_vm._v("Posts")])
+                  _c("li", [_vm._v("Текстови")])
                 ]),
                 _vm._v(" "),
                 _c(
                   "a",
                   { staticClass: "navbar__item", attrs: { href: "/about" } },
-                  [_c("li", [_vm._v("About")])]
+                  [_c("li", [_vm._v("За мене")])]
                 ),
                 _vm._v(" "),
                 _c(
                   "a",
                   { staticClass: "navbar__item", attrs: { href: "/contact" } },
-                  [_c("li", [_vm._v("Contact")])]
+                  [_c("li", [_vm._v("Контакт")])]
                 )
               ]
             )
@@ -58120,25 +58130,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
-    _c("img", {
-      staticClass: "card__image",
-      attrs: { src: _vm.image, alt: "Card image cap" }
-    }),
+    _c("a", { attrs: { href: _vm.link } }, [
+      _c("div", { staticClass: "card_img-contianer" }, [
+        _c("img", { attrs: { src: _vm.image, alt: "Card image cap" } })
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "card__text" }, [
       _c("p", { staticClass: "card__text__date" }, [
         _vm._v(_vm._s(_vm.formatDate(_vm.post.created_at)) + " ")
       ]),
       _vm._v(" "),
-      _c("h2", [
-        _c("a", { attrs: { href: _vm.link } }, [_vm._v(_vm._s(_vm.post.title))])
-      ]),
-      _vm._v(" "),
-      _vm.open
-        ? _c("div", { domProps: { innerHTML: _vm._s(_vm.post.body) } })
-        : _vm._e(),
-      _vm._v(" "),
       _c("a", { attrs: { href: _vm.link } }, [
+        _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
+        _vm._v(" "),
+        _vm.open
+          ? _c("div", { domProps: { innerHTML: _vm._s(_vm.post.body) } })
+          : _vm._e(),
+        _vm._v(" "),
         _c("img", {
           staticClass: "card__text__icon",
           attrs: { src: "/images/more.svg", alt: "" }

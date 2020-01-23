@@ -1,11 +1,11 @@
-<div class="content">
+<div class="comments-form">
         
     <form action="{{$action }}" method="POST">
 
         @csrf
 
         {{$method}}
-        <h4> Остави коментар...</h4>
+        <h3> Остави коментар...</h3>
 
         <div class="form-group">
 
@@ -35,7 +35,6 @@
         
         </div>
 
-
         <div class="form-group">
 
             <label for="email">{{ __('Наслов:') }}</label>
@@ -50,10 +49,9 @@
         
         </div>
 
-
         <div class="form-group">
             <label for="editor"> Коментар:</label>
-            <editor title=""></editor>
+            <textarea  class="form-control" name="body" id="" cols="30" rows="10"></textarea>
         </div>
 
         @if ($errors->has('body')) 
@@ -67,7 +65,7 @@
         {{$post_id}}
 
         <div class="form-group d-flex bd-highlight mb-3">
-            <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight">Publish</button>
+            <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight">Објави</button>
         </div>
 
     </form>  

@@ -6,6 +6,7 @@
         v-model="content"
         class="form-control" 
         name="body">
+        <slot> </slot>
      </trumbowyg>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import Trumbowyg from 'vue-trumbowyg';
   // Import editor css
   import 'trumbowyg/dist/ui/trumbowyg.css';
+  
   import { EventBus } from './EventBus.js';
    
   export default {    

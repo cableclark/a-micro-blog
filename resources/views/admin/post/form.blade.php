@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1"> Post: </label>
-            <editor name="body" value= '{{$body_value}}'>
+            <editor name="body" value= "{{$body_value}}">
             </editor>
         </div>
 

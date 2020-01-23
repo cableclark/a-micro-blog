@@ -1,21 +1,19 @@
 @extends('layouts.app')
 @section('content')
+
      <div class="content">
+        
+        <img src="/storage/{{$post->tumbnail}}" alt="Featured image">
+        <h2>{{$post->title}}</h2>
+        <span class="meta-text"> Напишано на {{$post->created_at->locale('uk')->format("F j, Y")}}</></span>
+        <div><p>{!!$post->body!!}</p> </div>
 
-        <h2 class="headings">{{$post->title}}</h2>
-
-        <p><i>{{$post->created_at->format("F j, Y")}}</i></p>
-
-         <div class="paragraphs"><p>{!!$post->body!!}</p> </div>
-
-        <hr>
-
-        <h4>Discussion:</h4>
+        <button id="comment-toggler">Дискусија</button>
         @foreach($post->comments as $comment) 
                 <div class="comment">
-                    <h5>{!!$comment->title!!}</h5>
-                    <p>{!!$comment->comment!!}</p>
-                    <p><i>Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</i></p>   
+                    <h4>{!!$comment->title!!}</h4> 
+                    <p>{!!$comment->comment!!}
+                    <span class="meta-text">Напишано на {{$comment->created_at->format("F j, Y")}} од {{$comment->name}}</span></p> 
                 </div>
         @endforeach
 

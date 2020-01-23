@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\PostRequest;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -89,6 +91,7 @@ class PostsController extends Controller
                 $path = $request->file('image')->store("public/featured_images");
                 
                 $post->featured_image = str_replace("public/","",$path);
+
             }
              
             $post->save();
@@ -118,10 +121,27 @@ class PostsController extends Controller
         $post->published = $request->input('published');
 
         if ($request->file('image')) {
-    
-            $path = $request->file('image')->store("public/featured_images");
-                
+
+            $deletedImage = "public/" . $post->featured_image;
+            
+            $deletedThumbnail= "public/" . $post->tumbnail;
+
+            Storage::delete([$deletedImage, $deletedThumbnail]);
+
+            $path = $request->file('image')->store("/public/featured_images");
+
+            $image = Image::make($request->file('image'))->fit(300)->encode('jpg');
+
+            //Provide own name
+            $name = "public/featured_images/thumb_" . str_replace("public/featured_images","", $path); ;
+            
+            //Put file with own name
+            Storage::put($name, $image);
+          
             $post->featured_image = str_replace("public/","",$path);
+
+            $post->tumbnail = str_replace("public/","",$name);
+        
         }
         
              
