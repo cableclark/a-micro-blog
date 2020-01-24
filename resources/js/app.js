@@ -25,6 +25,9 @@ Vue.component('editor', require('./components/Editor.vue').default);
 Vue.component('image-drawer', require('./components/ImageDrawer.vue').default);
 Vue.component('front-page', require('./components/FrontPage.vue').default);
 Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('Discussion', require('./components/Discussion.vue').default);
+Vue.component('Date', require('./components/Date.vue').default);
+
 
 
 /**

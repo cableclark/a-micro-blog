@@ -1,10 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Alice|Nunito&display=swap);:root {
   --headings-color: rgba(182, 70, 95, 255);
   --text-color: rgba (0, 0, 0, 255);
-  --background-color: rgba(242, 242, 242, 255);
+  --background-color: rgba(254, 254, 254, 255);
   --dark-background-color: rgba(147, 6, 32, 255);
   --headings-font: "Alice", serif;
   --text-font: "Nunito", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -60,18 +64,37 @@ iframe {
 .form-control {
   border-radius: 5px;
   border: solid 1px var(--headings-color);
-  padding: 5px;
+  background-color: var(--background-color);
+  padding: 10px;
   font-family: var(--text-font);
 }
 
-button {
-  background-color: var(--headings-color);
-  color: white;
+button,
+.comment-toggler {
+  color: var(--headings-color);
+  background-color: white;
+  border: solid 1px var(--headings-color);
   border-radius: 5px;
-  border: none;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 2em;
-  width: 100%;
+  width: 30%;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+button:hover {
+  color: var(--background-color);
+  background-color: var(--headings-color);
+  cursor: pointer;
+}
+
+.button-publish {
+  color: var(--headings-color);
+  background-color: var(--background-color);
+}
+
+#discussion {
+  display: none;
 }
 
 .comment {
@@ -81,5 +104,6 @@ button {
 .meta-text {
   font-size: 0.8em;
   font-style: italic;
+  margin: 1em 0;
 }
 
