@@ -5,16 +5,20 @@ html {
 body {
     background-color:rgba (249,249,249, 250);
     margin: 15px;  
+    margin-top: 0;
   }
 
 a {
   text-decoration: none;
   color:var(--headings-color); 
 }
+a:hover {
+  color: var(--headings-color); 
+}
 
 img {
-  width: 100%;
   border-radius: 5px;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5,h6 {
@@ -63,7 +67,9 @@ button, .comment-toggler {
   transition: all 0.1s ease-out;
 }
 
-button:hover{
+button:hover {
+  transform: scale(1.001);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
   color: var(--background-color);
   background-color: var(--headings-color);
   cursor: pointer;

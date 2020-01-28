@@ -1,69 +1,64 @@
 <template>
-    <div class="card">
-            
+    <div class="card">  
             <div class="card_img-contianer">
-                <a v-bind:href="link"> <img :src="image" alt="Card image cap"> </a>
+                <a v-bind:href="link">   
+                    <img :src="image" alt="Card image cap">
+                </a>
             </div>
+    
             <div class="card__text">
                 <p class="card__text__date">{{formatDate(post.created_at)}} </p>
-                <a v-bind:href="link">
-                    <h2>{{post.title}}</h2>
-                    <div v-if="open" v-html="post.body"> </div>
-                </a>
+                <h2><a v-bind:href="link">{{post.title}} </a></h2>
+                <p v-html="text"> </p>
+                <a v-bind:href="link"> <button> Прочитај</button> </a>
             </div>
     </div>
 </template>
 
 <script>
-
 import moment from 'moment';
-
     export default {
         props: {
             post: Object
         },
-        data: function () {
-            return {
-                open: false,
-            }
-        },
-
         computed: {
              image () {
                  return "/storage/" + this.post.tumbnail;
              } ,
              link () {
                  return "/post/" + this.post.slug;
-             }
-
+             },
+            text () {
+                return this.post.body.replace(/(<([^>]+)>)/ig,"").slice(0, 300) + "...";
+            }    
         },
-
         methods: {
             formatDate (date) {
                    return moment(date).locale('mk').format('Do MMMM, YYYY');
             }
         }
-
     }
-
 </script>
 
 <style scoped>
 .card {
+    background-color: var(--background-color);
+    margin-bottom: 1em; 
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    padding:0.5em;
 }
+
 .card__text {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    text-transform: uppercase;
+    align-self:center;
 }
 
 .card__text__date {
     padding-left:0.3em;
     font-size: 0.7em;
+    text-transform: uppercase; 
 }
 .text {
     padding: 1em;
@@ -74,45 +69,32 @@ import moment from 'moment';
     border-radius: 5px;
 }
 
-.show-enter-active, .show-leave-active {
-    opacity:1;
-}
 
-button {
-    flex-grow: 10000;
-}
-
-button:hover > a {
-    color: var(--headings-color);
-}
-
-
-.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {
-   opacity: 0;
-}
 @media (min-width: 768px) { 
     .card {
         display: flex;
-        flex-direction: column;
         margin: 0 auto;
-        padding: 1em;
-        max-width: 300px;  
+        padding:1em;
+        margin-bottom: 1em;
+        transition: all 0.3s ease-out;
     }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 2.6em;
         margin-bottom: 5px;
     }
     .card__text {
+      flex-grow: 1;
       max-width: 500px;
       padding:initial;
       padding-left: 15px;
+      margin: 1em;
     }
     .card_img-contianer {
-        margin: 0;
+        flex-grow: 5;
     }
-    button {
-        float: right;
+    .card__text__date {
+        font-size: 0.8em;
     }
 
 }

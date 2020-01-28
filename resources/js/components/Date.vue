@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import moment from 'moment';
 
     export default {
@@ -17,9 +16,8 @@ import moment from 'moment';
         },
         computed: {
             formatedDate () {
-                   return moment(this.date).locale('mk').format('Do MMMM, YYYY');
+                return moment(this.date).locale('mk').format('Do MMMM, YYYY');
             }
         }
-
     }
 </script>

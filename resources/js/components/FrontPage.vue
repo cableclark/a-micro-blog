@@ -1,9 +1,12 @@
 <template>
-    <div>
+    <div class="container">
        <transition-group appear name="show">
-           <div v-for="post in published.posts" v-bind:key="post.id">
-              <PostCard :post="post"></PostCard>
-           </div>
+           <FeaturedPost :post="published.firstPost" v-bind:key="published.firstPost.id"></FeaturedPost>
+            <div class="article-container" v-bind:key="divKey">
+            <article v-for="post in published.posts"  v-bind:key="post.id">
+                <PostCard :post="post"></PostCard> 
+            </article>
+            </div>
        </transition-group>
     </div>
 </template>
@@ -11,63 +14,35 @@
 <script>
     import axios from 'axios';
     import PostCard from './PostCard.vue';
+    import FeaturedPost from './FeaturedPost.vue';
 
     export default {
         components: {
-            PostCard
+            PostCard,
+            FeaturedPost
         },
         data: function () {
             return {
                 open: false,
                 published: [],
-                errors:[]
+                errors:[],
+                divKey:"heyholetsgo"
             }
         },
         created() {
             axios.get(`/getPosts`)
                 .then(response => {
                 // JSON responses are automatically parsed.
-                window.console.log(response.data)
                 this.published= response.data;
                 })
                 .catch(e => {
                     this.errors.push(e)
              })
-     },
-        methods: {
-
         }
     }
-
 </script>
 
 <style>
-.drawer {
-    background-color: rgba(12,12,12, 0.8);
-    position: absolute;
-    top: 0;
-    left: 0vw;
-    width: 100vw;
-    height: 100vh;
-    color:white;
-    display: flex;
-    z-index: 100000000;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.drawer-image {
-    width: 150px;
-    margin: 1rem;
-}
 
 .show-enter-active, .show-leave-active {
   transition: transform .3s; 
@@ -75,6 +50,33 @@
 
 .show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translate(100vw);
+}
+
+@media (min-width: 768px) { 
+    .container {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .article-container {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content:space-evenly;
+        flex-wrap: wrap;
+        
+    }
+    article  {
+        background-color: var(--background-color);
+        margin-bottom: 1em; 
+        transition: all 0.3s ease-out;
+    }
+
+    article:hover {
+        transform: scale(1.001);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 }
 
 </style>

@@ -3,7 +3,6 @@
        <button @click.prevent="open=!open" class="btn btn-primary mr-3 p-2 bd-highlight"> Insert Image </button>
        <transition name="show">
        <div v-if="open" class="drawer"> 
-
            <div class="image-container">
                 <img 
                 @click="addImages(image.path)" 
@@ -13,7 +12,6 @@
                 name="image.name" 
                 class="drawer-image"> 
             </div>
-
             <button @click.prevent="open=!open"  class="btn btn-danger p-2 bd-highligh"> Cancel </button>
        </div>
        </transition>
@@ -56,7 +54,6 @@ import { EventBus } from './EventBus.js';
                 this.open=!this.open;
 
             }
-
         }
     }
 

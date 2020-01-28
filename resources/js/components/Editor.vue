@@ -12,11 +12,8 @@
 </template>
 
 <script>  
-  // Import this component
   import Trumbowyg from 'vue-trumbowyg';
-  // Import editor css
   import 'trumbowyg/dist/ui/trumbowyg.css';
-  
   import { EventBus } from './EventBus.js';
    
   export default {    
@@ -40,7 +37,6 @@
         EventBus.$on('addImages', (name) => {
           this.content +=`<img src="${name}" class="img-fluid">`;
         })
-    
       }
   }
 </script>

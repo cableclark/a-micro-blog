@@ -1,27 +1,16 @@
 <template>
-<nav class="navbar">
-
-    <a href="/"><div class=navbar__logo> Miss Albini's music diary</div></a>
-
-    <div @click="open=!open" class="navbar__toggler">Мени</div>
-
-    <transition name="menu">
-    
-        <ul @click="open=!open" v-if="open" class="navbar__menu">
-            <li class="navbar__item navbar__menu__heading">Навигација</li>
-            
-            <a class="navbar__item" href="/"> <li>Текстови</li></a>
-
-            <a class="navbar__item" href="/about"> <li>За мене</li></a>
-            
-            <a class="navbar__item" href="/contact"> <li>Контакт</li></a>
-
-        </ul >
-
-     </transition>
-            
-</nav>
-
+    <nav class="navbar">
+        <div class=navbar__logo> <a href="/">Miss Albini's music diary</a></div>
+        <div @click="open=!open" class="navbar__toggler">Мени</div>
+        <transition name="menu">
+            <ul @click="open=!open" :class="{ active:open}" class="navbar__menu" >
+                <li class="navbar__item navbar__menu__heading">Навигација</li>
+                <a class="navbar__item" href="/"> <li>Текстови</li></a>
+                <a class="navbar__item" href="/about"> <li>За мене</li></a>
+                <a class="navbar__item" href="/contact"> <li>Контакт</li></a>
+            </ul >
+        </transition>    
+    </nav>
 </template>    
 
 <script>
@@ -30,12 +19,11 @@
             return {
                 open: false,
             }
-        }
+        },
     }
 </script>
 
 <style> 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -46,7 +34,6 @@
     color: var(--headings-color); 
     font-family: var(--headings-font)
 }
-
 .navbar__toggler {
     border: 1px solid black; 
     font-family: var(--text-font);
@@ -54,12 +41,7 @@
     cursor: pointer;
     border-radius: 5px;
 }
-
 .navbar__menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     position:absolute;
     list-style-type: none;
     background-color: var(--background-color);
@@ -70,17 +52,21 @@
     top:0;
     left: 0;
     background-color: var(--dark-background-color);
+    display: none;
 }
-
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 .navbar__item {
     font-family: var(--text-font);
     margin: 0.6em;
     text-decoration: none;
     font-size: 1.3em;
     color: var(--background-color);
-
 }
-
 .navbar__menu__heading {
     font-family: var(--text-font);
     color: var(--headings-color); 
@@ -88,7 +74,6 @@
     justify-self:left;
     flex-basis: 10em;
 }
-
 .menu-enter-active, .menu-leave-active {
   transition: opacity .5s;
 }
@@ -96,5 +81,58 @@
   opacity: 0;
 }
 
+@media (min-width: 768px) { 
+    .navbar {
+        justify-content: space-around;
+        margin: 0 auto;    
+    }
+    .navbar__logo {
+        font-size: 1.3em;
+        flex-basis: 210;
+    }
+    .navbar__toggler {
+        display: none;
+    } 
+    .navbar__menu {
+        position:unset;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        flex-basis: 1;
+        background-color: var(--background-color);
+        height: 50px;
+        width:unset;
+        margin:0;
+        padding: 0;
+        top:0;
+        left: 0;
+        background-color: white;
+        align-items: center;
+    }
+    .navbar__item {
+        font-family: var(--text-font);
+        margin: 0 1em ;
+        text-decoration: none;
+        font-size: 1em;
+        color: black;
+        padding: 0;
+        transform:translateY(2px);
     
+    }
+    .navbar__menu__heading {
+        display:none;
+
+    }
+
+    .active {
+        
+    }
+
+
+
+
+
+}
+
+
 </style>

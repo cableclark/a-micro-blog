@@ -8,7 +8,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -27,6 +26,9 @@ Vue.component('front-page', require('./components/FrontPage.vue').default);
 Vue.component('Navbar', require('./components/Navbar.vue').default);
 Vue.component('Discussion', require('./components/Discussion.vue').default);
 Vue.component('Date', require('./components/Date.vue').default);
+Vue.component('FeaturedPost', require('./components/FeaturedPost.vue').default);
+
+
 
 
 
