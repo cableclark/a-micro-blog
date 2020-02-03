@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -27,9 +26,9 @@ Vue.component('Navbar', require('./components/Navbar.vue').default);
 Vue.component('Discussion', require('./components/Discussion.vue').default);
 Vue.component('Date', require('./components/Date.vue').default);
 Vue.component('FeaturedPost', require('./components/FeaturedPost.vue').default);
-
-
-
+Vue.component('InfiniteScroll', require('./components/InfiniteScroll.vue').default);
+Vue.component('footered', require('./components/footered.vue').default);
+Vue.component('FullSpinner', require('./components/FullSpinner.vue').default);
 
 
 /**

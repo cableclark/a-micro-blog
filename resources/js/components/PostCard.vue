@@ -1,6 +1,6 @@
 <template>
-    <div class="card">
-            
+    <transition-group appaer name="show">
+        <div class="card" v-bind:key="post.id">
             <div class="card_img-contianer">
                 <a v-bind:href="link"> <img :src="image" alt="Card image cap"> </a>
             </div>
@@ -11,7 +11,8 @@
                     <div v-if="open" v-html="post.body"> </div>
                 </a>
             </div>
-    </div>
+        </div>
+    </transition-group>
 </template>
 
 <script>
@@ -27,7 +28,6 @@ import moment from 'moment';
                 open: false,
             }
         },
-
         computed: {
              image () {
                  return "/storage/" + this.post.tumbnail;
@@ -37,76 +37,71 @@ import moment from 'moment';
              }
 
         },
-
         methods: {
             formatDate (date) {
                    return moment(date).locale('mk').format('Do MMMM, YYYY');
             }
         }
-
     }
 
 </script>
 
 <style scoped>
+.show-enter-active, .show-leave-active {
+    transition: all .2s ease-in; 
+}
+.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translate(15vw);
+}
 .card {
-    border-radius: 5px;
+    background-color: var(--background-color);
+    margin-bottom: 1em; 
+    border-radius: 10px;
+    padding:1em;
     display: flex;
     flex-direction: column;
 }
+img {
+    width: 100%;
+} 
 .card__text {
     display: flex;
     flex-direction: column;
     padding: 1em;
     text-transform: uppercase;
 }
-
 .card__text__date {
-    padding-left:0.3em;
     font-size: 0.7em;
 }
 .text {
     padding: 1em;
 }
 
+h2 {
+    font-size: 2em;
+}
 .card_img-contianer {
     overflow: hidden;
     border-radius: 5px;
 }
 
-.show-enter-active, .show-leave-active {
-    opacity:1;
-}
-
-button {
-    flex-grow: 10000;
-}
-
-button:hover > a {
-    color: var(--headings-color);
-}
-
-
-.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {
-   opacity: 0;
-}
-@media (min-width: 768px) { 
+@media (min-width: 600px) { 
     .card {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        padding: 1em;
-        max-width: 300px;  
+        padding: 1.2em;
+        width: 360px;
+     
     }
-
     h2 {
         font-size: 1.4em;
         margin-bottom: 5px;
     }
     .card__text {
-      max-width: 500px;
+    
       padding:initial;
-      padding-left: 15px;
     }
     .card_img-contianer {
         margin: 0;
@@ -114,8 +109,17 @@ button:hover > a {
     button {
         float: right;
     }
-
+}
+  @media screen and (min-width: 7680px) { 
+}
+@media screen and (min-width: 900px) { 
 }
 
+@media screen and (min-width: 1024px) { 
+
+}
+@media screen and (min-width: 1200px) { 
+    
+}
 </style>
 

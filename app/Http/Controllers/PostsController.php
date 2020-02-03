@@ -7,6 +7,7 @@ use App\Post;
 use App\Http\Requests\PostRequest;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -14,7 +15,7 @@ class PostsController extends Controller
 
     public function __construct () {
 
-        $this->middleware("auth")->except(["index", "show", "getPosts"]);
+        $this->middleware("auth")->except(["index", "show", "getPosts", "ajaxPosts"]);
     } 
 
     /**
@@ -22,17 +23,18 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-    
         return view('posts.index');
     }
 
-    
-    
-     public function getPosts () {
 
-        $posts = Post::published()->orderBy("created_at", "DESC")->get();
+    
+     public function getPosts ()
+     {
+
+        $posts = Post::published()->orderBy("created_at", "DESC")->limit(7)->get();
 
         $firstPost= $posts[0];
         
@@ -43,6 +45,21 @@ class PostsController extends Controller
             'posts'=>$posts
             ];
      }   
+
+
+     public function  ajaxPosts ($page)
+
+      {
+
+        $posts =  DB::table('posts')->select('id', 'title', 'tumbnail', 'slug', 'created_at')->orderBy("created_at", "DESC")->skip($page)->take(2)->get();
+
+
+        return  [
+            'posts'=>$posts
+            ];
+     }   
+
+
     /**
      * Display the specified resource.
      *
@@ -144,7 +161,6 @@ class PostsController extends Controller
         
         }
         
-             
         $post->save();
         
         return redirect("admin");

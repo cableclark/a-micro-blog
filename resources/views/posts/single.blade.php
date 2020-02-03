@@ -9,7 +9,6 @@
 
         <div><p>{!!$post->body!!}</p> </div>
 
-
         <Discussion comments="{{count($post->comments)}}">
             @foreach($post->comments as $comment) 
                     <div class="comment">
@@ -21,7 +20,7 @@
 
             @error('msg')
                 <div class="alert alert-primary"> Your post is sent!</div>
-                @enderror
+            @enderror
 
             @component('posts.includes.comment')
 
@@ -39,6 +38,7 @@
 
             @endcomponent
          </Discussion>
+        
     </div>
-   
+
 @endsection 

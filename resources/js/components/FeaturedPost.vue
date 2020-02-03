@@ -7,11 +7,14 @@
             </div>
     
             <div class="card__text">
-                <p class="card__text__date">{{formatDate(post.created_at)}} </p>
-                <h2><a v-bind:href="link">{{post.title}} </a></h2>
-                <p v-html="text"> </p>
-                <a v-bind:href="link"> <button> Прочитај</button> </a>
+               <transition appear> <p class="card__text__date">{{formatDate(post.created_at)}} </p></transition>  
+                
+                <transition appear><h2><a v-bind:href="link">{{post.title}} </a></h2></transition>  
+                
+                <transition appear><p v-html="text"> </p></transition>  
+                <transition appear> <a v-bind:href="link"> <button> Прочитај</button> </a></transition>  
             </div>
+            
     </div>
 </template>
 
@@ -41,11 +44,22 @@ import moment from 'moment';
 </script>
 
 <style scoped>
+
+.v-enter-active, .v-leave-active {
+    transition: all 0.5s ease-out 0.1s; 
+}
+
+.v-enter, .v-leave-to {
+    opacity: 0;
+    transform: translate(2vw);
+}
+
 .card {
+    margin: 0.3em; 
+    border-radius: 10px;
+    padding:1em;
+    box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
     background-color: var(--background-color);
-    margin-bottom: 1em; 
-    border-radius: 5px;
-    padding:0.5em;
 }
 
 .card__text {
@@ -67,13 +81,25 @@ import moment from 'moment';
 .card_img-contianer {
     overflow: hidden;
     border-radius: 5px;
+    margin: auto 0;
+
 }
 
+  /* 600px
+    768px
+    900px
+    1024px
+    1200px */
 
+ @media (min-width: 600px) { 
+
+ }
+
+ 
 @media (min-width: 768px) { 
     .card {
         display: flex;
-        margin: 0 auto;
+        margin: 1em 0.5em;
         padding:1em;
         margin-bottom: 1em;
         transition: all 0.3s ease-out;
@@ -83,6 +109,7 @@ import moment from 'moment';
         font-size: 2.6em;
         margin-bottom: 5px;
     }
+
     .card__text {
       flex-grow: 1;
       max-width: 500px;
@@ -95,8 +122,28 @@ import moment from 'moment';
     }
     .card__text__date {
         font-size: 0.8em;
-    }
+    }  
 
+}
+
+ @media (min-width: 900px) { 
+     
+ }
+
+  @media (min-width: 1024px) { 
+     
+ }
+
+  @media (min-width: 1200px) {
+        .card {
+            padding: 3.3em;
+            margin: 0;
+            margin-top: 1em; 
+        }
+
+        h2 {
+            font-size: 3.3em;
+        }
 }
 
 </style>

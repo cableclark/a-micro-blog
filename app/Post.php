@@ -16,8 +16,7 @@ class Post extends Model
 
     public function makeSlug (string $title) {
 
-        $slug = 
-        URLify::filter($title);
+        $slug = URLify::filter($title);
         
         return  $slug;
     }
@@ -33,6 +32,8 @@ class Post extends Model
     {
         return $query->where('published', 1);
     }
+
+ 
 
     /**
      * Get the user's full name.

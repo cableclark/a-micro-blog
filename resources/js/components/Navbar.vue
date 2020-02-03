@@ -5,9 +5,9 @@
         <transition name="menu">
             <ul @click="open=!open" :class="{ active:open}" class="navbar__menu" >
                 <li class="navbar__item navbar__menu__heading">Навигација</li>
-                <a class="navbar__item" href="/"> <li>Текстови</li></a>
-                <a class="navbar__item" href="/about"> <li>За мене</li></a>
-                <a class="navbar__item" href="/contact"> <li>Контакт</li></a>
+                <a class="navbar__item" href="/"> <li> БЛОГ</li> </a>
+                <a class="navbar__item" href="/about"> <li>ЗА МЕНЕ</li></a>
+                <a class="navbar__item" href="/contact"> <li>КОНТАКТ</li></a>
             </ul >
         </transition>    
     </nav>
@@ -15,11 +15,11 @@
 
 <script>
     export default {
-        data: function () {
-            return {
-                open: false,
-            }
-        },
+      data : function () {
+          return { 
+            open: false
+          }
+      }
     }
 </script>
 
@@ -35,11 +35,14 @@
     font-family: var(--headings-font)
 }
 .navbar__toggler {
-    border: 1px solid black; 
+    color: var(--headings-color); 
     font-family: var(--text-font);
     padding: 0.4em 1.3em;
     cursor: pointer;
     border-radius: 5px;
+    border: 1px solid var(--headings-color); 
+    background-color: var(--headings-color); 
+    color: white;
 }
 .navbar__menu {
     position:absolute;
@@ -60,12 +63,34 @@
     align-items: center;
     justify-content: flex-start;
 }
+
 .navbar__item {
     font-family: var(--text-font);
-    margin: 0.6em;
+    margin: 2em;
     text-decoration: none;
     font-size: 1.3em;
-    color: var(--background-color);
+    color: var(--background-color); 
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    animation: Navintro 0.3s ease-out forwards;
+}
+
+.navbar__item:nth-of-type(1) {
+    animation-delay: 50ms;
+}
+
+.navbar__item:nth-of-type(2) {
+    animation-delay: 100ms;
+}
+
+.navbar__item:nth-of-type(3) {
+    animation-delay: 150ms;
+}
+
+@keyframes Navintro{
+    0% {opacity: 0; transform: translate(20px)}
+    100%{opacity:100;transform: translate(0px)}
+
 }
 .navbar__menu__heading {
     font-family: var(--text-font);
@@ -81,14 +106,26 @@
   opacity: 0;
 }
 
+
+@media screen and (min-width: 600px) { 
+}
+
 @media (min-width: 768px) { 
     .navbar {
         justify-content: space-around;
-        margin: 0 auto;    
+        margin: 0 auto;
+        position: sticky;
+        top:0;  
+        background-color:white;
+        z-index: 100;
+        box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
     }
     .navbar__logo {
         font-size: 1.3em;
-        flex-basis: 210;
+      
+    }
+     .navbar__logo a {
+        color: var(--headings-color); 
     }
     .navbar__toggler {
         display: none;
@@ -99,40 +136,43 @@
         flex-direction: row;
         list-style-type: none;
         flex-basis: 1;
-        background-color: var(--background-color);
-        height: 50px;
+        height: 20px;
+        transform: translateY(2px);
         width:unset;
         margin:0;
         padding: 0;
         top:0;
         left: 0;
-        background-color: white;
         align-items: center;
+        background-color:white;
     }
     .navbar__item {
-        font-family: var(--text-font);
-        margin: 0 1em ;
+        font-family: var(--text-font); 
+        font-weight: 100;
+        margin: 0 0.4em ;
         text-decoration: none;
-        font-size: 1em;
-        color: black;
-        padding: 0;
-        transform:translateY(2px);
-    
+        font-size: 0.8em;
+        letter-spacing: 0.3em;
+        color: var(--headings-color); 
+        padding: 0.8em 1.2em;
+        transition: all 0.3s ease-out;
     }
+
+
     .navbar__menu__heading {
         display:none;
-
     }
-
-    .active {
-        
-    }
-
-
-
-
 
 }
 
+@media screen and (min-width: 900px) { 
+}
+
+@media screen and (min-width: 1024px) { 
+
+}
+@media screen and (min-width: 1200px) { 
+    
+}
 
 </style>

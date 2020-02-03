@@ -1,20 +1,28 @@
+/*screen sizes
+   =
+    600px
+    768px
+    900px
+    1024px
+    1200px
+*/
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
     background-color:rgba (249,249,249, 250);
-    margin: 15px;  
+    margin: 0;  
     margin-top: 0;
+    background-image: url("/images/backround.svg");
   }
 
 a {
   text-decoration: none;
   color:var(--headings-color); 
 }
-a:hover {
-  color: var(--headings-color); 
-}
+
 
 img {
   border-radius: 5px;
@@ -28,6 +36,9 @@ h1, h2, h3, h4, h5,h6 {
     margin:0;
 }
 
+h2 {
+  font-size: 2.5em;
+}
  h4 {
   font-family: var(--text-font);
   font-size: 1.2em;
@@ -59,19 +70,18 @@ iframe {
 button, .comment-toggler {
   color:var(--headings-color); 
   background-color: white;
-  border: solid 1px var(--headings-color); 
+  border: none; 
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 2em;
   width: 30%;
-  transition: all 0.1s ease-out;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-out;
 }
 
 button:hover {
   transform: scale(1.001);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
-  color: var(--background-color);
-  background-color: var(--headings-color);
+  box-shadow: 0 1px 28px rgba(0,0,0,0.1), 0 1px 10px rgba(0,0,0,0.1);
   cursor: pointer;
 }
 

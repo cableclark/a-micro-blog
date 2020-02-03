@@ -21,6 +21,8 @@
             <main>
                 @yield('content')
             </main>
+         <footered></footered>    
         </div>  
+       
     </body>
 </html>
