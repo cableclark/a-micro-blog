@@ -1,6 +1,6 @@
 <template>
         <div class="meta-text">
-            {{formatedDate}} 
+           Обајавено на: {{formatedDate}} 
         </div>
 </template>
 

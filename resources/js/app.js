@@ -29,6 +29,7 @@ Vue.component('FeaturedPost', require('./components/FeaturedPost.vue').default);
 Vue.component('InfiniteScroll', require('./components/InfiniteScroll.vue').default);
 Vue.component('footered', require('./components/footered.vue').default);
 Vue.component('FullSpinner', require('./components/FullSpinner.vue').default);
+Vue.component('search', require('./components/Search.vue').default);
 
 
 /**
@@ -39,5 +40,4 @@ Vue.component('FullSpinner', require('./components/FullSpinner.vue').default);
 
 const app = new Vue({
     el: '#app',
-    
 });

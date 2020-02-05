@@ -1,25 +1,32 @@
 <template>
     <nav class="navbar">
-        <div class=navbar__logo> <a href="/">Miss Albini's music diary</a></div>
-        <div @click="open=!open" class="navbar__toggler">Мени</div>
-        <transition name="menu">
-            <ul @click="open=!open" :class="{ active:open}" class="navbar__menu" >
-                <li class="navbar__item navbar__menu__heading">Навигација</li>
-                <a class="navbar__item" href="/"> <li> БЛОГ</li> </a>
-                <a class="navbar__item" href="/about"> <li>ЗА МЕНЕ</li></a>
-                <a class="navbar__item" href="/contact"> <li>КОНТАКТ</li></a>
-            </ul >
-        </transition>    
+            <div class=navbar__logo> <a href="/">Miss Albini's music diary</a></div>
+            <div @click="open=!open" class="navbar__toggler">Мени</div>
+            <transition name="menu">
+                <ul @click="open=!open" :class="{ active:open}" class="navbar__menu" >
+                    <li class="navbar__item navbar__menu__heading">Навигација</li>
+                    <a class="navbar__item" href="/"> <li> БЛОГ</li> </a>
+                    <a class="navbar__item" href="/about"> <li>ЗА МЕНЕ</li></a>
+                    <a class="navbar__item" href="/contact"> <li>КОНТАКТ</li></a>
+                    <search class="navbar__item "></search>
+                </ul> 
+            </transition>   
+                
     </nav>
 </template>    
 
 <script>
+import search from "./Search.vue";
+
     export default {
-      data : function () {
-          return { 
-            open: false
-          }
-      }
+        components:{
+            search
+        },
+        data : function () {
+            return { 
+                open: false
+            }
+        }      
     }
 </script>
 
@@ -47,13 +54,13 @@
 .navbar__menu {
     position:absolute;
     list-style-type: none;
-    background-color: var(--background-color);
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin:0;
     padding: 0;
     top:0;
     left: 0;
+    letter-spacing: 0.3em;
     background-color: var(--dark-background-color);
     display: none;
 }
@@ -62,6 +69,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    z-index: 110;
 }
 
 .navbar__item {
@@ -131,6 +139,7 @@
         display: none;
     } 
     .navbar__menu {
+        font-size: 0.9em;
         position:unset;
         display: flex;
         flex-direction: row;
@@ -152,7 +161,6 @@
         margin: 0 0.4em ;
         text-decoration: none;
         font-size: 0.8em;
-        letter-spacing: 0.3em;
         color: var(--headings-color); 
         padding: 0.8em 1.2em;
         transition: all 0.3s ease-out;
@@ -166,13 +174,16 @@
 }
 
 @media screen and (min-width: 900px) { 
+    .navbar__menu {
+        font-size: 1em;
+    }
 }
 
 @media screen and (min-width: 1024px) { 
 
 }
 @media screen and (min-width: 1200px) { 
-    
+ 
 }
 
 </style>

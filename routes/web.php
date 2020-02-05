@@ -17,6 +17,19 @@ Route::get('/admin', 'DashboardController@index')->name('admin');
 
 Route::get('/', 'PostsController@index')->name('home');
 
+Route::get('/about', function () {
+
+    return view('about');   
+
+});
+
+
+Route::get('/contact', function () {
+
+    return view('contact');   
+
+});
+
 Route::get('/getimages', 'ImagesController@getImages')->name('get-image');
 
 Route::get('/getPosts', 'PostsController@getPosts')->name('get-posts');

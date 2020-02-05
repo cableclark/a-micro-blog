@@ -1,11 +1,9 @@
 <template>
-    <div>
+    <div class="grided-div">
        <div v-if="spinner" class="spinner"></div>
-        <div class="article-container">
-            <article v-for="post in pages" v-bind:key="post.id">
-                <PostCard :post="post"></PostCard> 
-            </article>
-        </div>
+        <article v-for="post in pages" v-bind:key="post.id">
+            <PostCard :post="post"></PostCard> 
+        </article>
     </div>
 </template>
 
@@ -74,6 +72,46 @@
 @keyframes rotate {
     from {transform: rotate(0deg)}
     to {transform: rotate(360deg)}
+}
+
+@media screen and (min-width: 600px) { 
+    .grided-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .article{
+        grid-column: 1;   
+    }
+
+    .article:nth-last-of-type(2) {
+        grid-column: 2;   
+    }
+}
+
+
+
+@media screen and (min-width: 900px) { 
+
+  .grided-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+     .featured {
+        grid-column:1/-1;    
+    }
+    .article{
+        grid-column: 1;   
+    }
+
+    .article:nth-last-of-type(2) {
+        grid-column: 2;   
+    }
+
+    .article:nth-last-of-type(3) {
+        grid-column: 3;   
+    }
+
 }
 
 </style>

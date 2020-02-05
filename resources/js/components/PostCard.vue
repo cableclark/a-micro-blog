@@ -58,7 +58,8 @@ import moment from 'moment';
     background-color: var(--background-color);
     margin-bottom: 1em; 
     border-radius: 10px;
-    padding:1em;
+    margin: 0.3em; 
+    padding:1.3em 1em; 
     display: flex;
     flex-direction: column;
 }
@@ -73,6 +74,7 @@ img {
 }
 .card__text__date {
     font-size: 0.7em;
+    margin-top: 1.5em; 
 }
 .text {
     padding: 1em;
@@ -92,15 +94,13 @@ h2 {
         flex-direction: column;
         margin: 0 auto;
         padding: 1.2em;
-        width: 360px;
-     
+
     }
     h2 {
         font-size: 1.4em;
         margin-bottom: 5px;
     }
     .card__text {
-    
       padding:initial;
     }
     .card_img-contianer {
@@ -110,8 +110,11 @@ h2 {
         float: right;
     }
 }
-  @media screen and (min-width: 7680px) { 
+
+@media screen and (min-width: 768px) { 
+    
 }
+
 @media screen and (min-width: 900px) { 
 }
 
@@ -121,5 +124,6 @@ h2 {
 @media screen and (min-width: 1200px) { 
     
 }
+
 </style>
 

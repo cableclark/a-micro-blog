@@ -58,7 +58,7 @@ import moment from 'moment';
     margin: 0.3em; 
     border-radius: 10px;
     padding:1em;
-    box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0px 5px rgb(255, 252, 252), 0 0px 5px rgba(0,0,0,0.3);
     background-color: var(--background-color);
 }
 
@@ -71,7 +71,8 @@ import moment from 'moment';
 
 .card__text__date {
     padding-left:0.3em;
-    font-size: 0.7em;
+    font-size: 0.9em;
+    margin-bottom: 0;
     text-transform: uppercase; 
 }
 .text {
@@ -85,41 +86,41 @@ import moment from 'moment';
 
 }
 
-  /* 600px
-    768px
-    900px
-    1024px
-    1200px */
 
  @media (min-width: 600px) { 
-
+  
  }
 
  
 @media (min-width: 768px) { 
     .card {
         display: flex;
-        margin: 1em 0.5em;
-        padding:1em;
+        margin: 1em 1em;
         margin-bottom: 1em;
+        padding: 2em;
         transition: all 0.3s ease-out;
+        justify-content: center;
+
     }
 
-    h2 {
-        font-size: 2.6em;
+    .card__text > h2 {
+        font-size: 2em;
         margin-bottom: 5px;
     }
 
     .card__text {
-      flex-grow: 1;
-      max-width: 500px;
       padding:initial;
       padding-left: 15px;
       margin: 1em;
     }
     .card_img-contianer {
-        flex-grow: 5;
+        overflow:unset;
     }
+
+    img {
+        width: fit-content;
+    }
+    
     .card__text__date {
         font-size: 0.8em;
     }  
@@ -127,23 +128,45 @@ import moment from 'moment';
 }
 
  @media (min-width: 900px) { 
+
+      .card {
+        padding: 3em;
+    }
+       img {
+        width: 25em; 
+    }
+
+    .card__text > h2 {
+        font-size: 2.3em;
+        margin-bottom: 5px;
+    }
      
  }
 
   @media (min-width: 1024px) { 
-     
+
+       .card__text > h2 {
+            font-size: 2.6em;
+        }
+
+       
  }
 
   @media (min-width: 1200px) {
         .card {
-            padding: 3.3em;
-            margin: 0;
+            padding: 4em;
+            margin: 1em;
             margin-top: 1em; 
         }
 
-        h2 {
-            font-size: 3.3em;
+        .card__text > h2 {
+            font-size: 3em;
         }
+
+        img {
+         width: 24em; 
+        }
+     
 }
 
 </style>
