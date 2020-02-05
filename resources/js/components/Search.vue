@@ -1,21 +1,28 @@
 <template>
     <div>
-        <div class="search">
+        <div @click="active = !active" class="search">
             <p>ПРЕБАРАЈ</p>
             <img class="search" src="/images/search.svg"/>
         </div>
-        <div class="search--form" ref="search">
-        <form method="POST" action="">
-            <input type="text" name="search">
-            <label for="search">Барај</label>
-        </form>
-        </div>
+        <transition>
+            <div class="search--form" :class="{ searchActive:active}" ref="search">
+            <form method="POST" action="">
+                <input type="text" name="search">
+                <label for="search">Барај</label>
+            </form>
+            </div>
+         </transition>
     </div>
 </template>
 
 <script>
     export default {
-          mounted() {
+        data: function () {
+            return {
+                active: false
+            }
+        },
+        mounted() {
             document.body.appendChild(this.$refs.search);
         } 
     }
@@ -42,9 +49,6 @@
 
 .search--form {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content:center;
     background-color: var(--background-color);
     width: 100vw;
     height: 200px;
@@ -52,6 +56,14 @@
     padding: 0;
     left: 0px;
     top: 0px;
+    display: none;
+}
+
+.searchActive {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 111;
 }
 
