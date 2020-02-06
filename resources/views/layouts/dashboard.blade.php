@@ -13,7 +13,6 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -21,8 +20,7 @@
 <body>
     <div id="app">
 
-        <div class="container-fluid">
-            <div class="flexer">
+            <div class="">
                 @include('layouts.dashnav')
                 {{-- @include('layouts.sidebar')     --}}
                 <main>

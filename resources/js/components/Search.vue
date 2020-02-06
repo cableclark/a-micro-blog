@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div @click="active = !active" class="search">
+        <div @click="active = !active, passive = !passive" class="search">
             <p>ПРЕБАРАЈ</p>
             <img class="search" src="/images/search.svg"/>
         </div>
         <transition>
-            <div class="search--form" :class="{ searchActive:active}" ref="search">
+            <div class="search--form" @click.self="passive = !passive, active = !active" :class="{ searchActive:active, searchPassive:passive}" ref="search">
             <form method="POST" action="">
-                <input type="text" name="search">
-                <label for="search">Барај</label>
+                <input type="text" name="search" autofocus>
+                <button for="search">Барај</button>
             </form>
             </div>
          </transition>
@@ -19,7 +19,8 @@
     export default {
         data: function () {
             return {
-                active: false
+                active: false,
+                passive: true
             }
         },
         mounted() {
@@ -31,40 +32,67 @@
 <style>
 .search {
     display: flex;
-    width: 130px;
     align-items: center;
     justify-content:space-between;
     border: 1px solid var(--headings-color);
-    padding: 1em;
+    padding: 1.3em;
+    transform: translateX(-0.17em);
 }
 
 .search img {
     display:none;
 }
 
-.search p {
-    margin: 0;
-    transform: translateX(-0.2em);
-}
-
 .search--form {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     background-color: var(--background-color);
     width: 100vw;
-    height: 200px;
+    height: 100vh;
     margin:0;
     padding: 0;
     left: 0px;
     top: 0px;
-    display: none;
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+
+.search--form form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.search--form input {
+    border-radius: 5px;
+    border: 1px solid var(--headings-color); 
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.search p {
+    margin: 0;
+    transform: translateX(-0.17em);
+    
 }
 
 .searchActive {
-    display: block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 111;
+    opacity: 1;
+    transition: all 0.5s ease-out;
+}
+
+.searchPassive {
+    z-index: -111;
+    transform: translateY(-100vh);
+    opacity: 0;
+    transition: all 0.5s ease-in;
 }
 
 @media screen and (min-width: 600px) { 
@@ -74,13 +102,16 @@
 .search {
     border: 1px solid var(--headings-color);
     border-radius: 5px;
-   
-    transition: all 0.3s ease-out;
-    padding: 0.5em;
+    transform: translateX(0em);
+    transition: all 0.5s ease-out;
+    padding: 0.5em 1em ;
+}
+
+.search p {
+     margin-left: 1.1em;
 }
 
 .search:hover {
-    transform: scale(1.001);
     cursor: pointer;
 }
 
@@ -89,6 +120,10 @@
     width: 13px;
     border:unset;
     box-shadow: unset;
+}
+
+.search--form {
+
 }
 
 }

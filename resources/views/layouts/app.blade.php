@@ -16,8 +16,8 @@
     </head>
     <body>
         <div id="app">
+        
             @include('layouts.navbar')
-            {{-- @include('layouts.sidebar')     --}}
             <main>
                 @yield('content')
             </main>

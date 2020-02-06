@@ -1,20 +1,20 @@
 @auth
 
-<nav class="navbar" id="navig">
+<nav class="dashboard--navbar">
 
-    <ul class="navbar-nav ml-auto">
+    <ul >
 
-        <a class="p-2" href="{{route('admin')}}"> <li>Dashboard</li></a>
+        <a href="{{route('admin')}}"> <li>Dashboard</li></a>
         
-        <a  class="p-2" href="{{route('show-images')}}"> <li>Images</li></a>
+        <a   href="{{route('show-images')}}"> <li>Images</li></a>
 
-        <a  class="p-2" href="{{ route('logout') }}"
+        <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
             <li> {{ __('Logout') }}</li>
         </a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <form  id='logout-form' action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
 

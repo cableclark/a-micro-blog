@@ -105,7 +105,7 @@ article  {
 }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 778px) { 
     .container {
         max-width: 1024px;
         margin: 0 auto;

@@ -2,6 +2,18 @@ body {
   overflow-x: hidden;
 }
 
+.dashwrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard--navbar {
+   width: 300px;
+   height: 100vh;
+   margin: 20px;
+   background-color: black;
+}
+
 .post-img {
   height: 200px;
   width: 300px;

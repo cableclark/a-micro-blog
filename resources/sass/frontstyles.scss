@@ -62,14 +62,14 @@ p {
 .form-control{
   border-radius: 5px;
   border: solid 1px var(--headings-color); 
-  background-color: var(--background-color);
+  background-color: var(--light-color);
   padding: 10px;
   font-family: var(--text-font);
 } 
 
 button, .comment-toggler {
   color:var(--headings-color); 
-  background-color:var(--background-color);
+  background-color:var(--light-color);
   border: 1px solid var(--headings-color);
   border-radius: 5px;
   padding: 10px;
@@ -87,7 +87,7 @@ button:hover {
 
 .button-publish {
   color: var(--headings-color);
-  background-color: var(--background-color);
+  background-color: var(--light-color);
 }
 
 #discussion {

@@ -32,10 +32,17 @@ import search from "./Search.vue";
 
 <style> 
 .navbar {
+    position: sticky;
+    top:0;  
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em;
+    z-index: 150;
+    height: 10px;
+    background-color:white;
+    z-index: 100;
+    box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
 }
 .navbar__logo {
     color: var(--headings-color); 
@@ -116,9 +123,12 @@ import search from "./Search.vue";
 
 
 @media screen and (min-width: 600px) { 
+    .navbar__menu {
+        font-size: 0.9em;
+     }
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 868px) { 
     .navbar {
         justify-content: space-around;
         margin: 0 auto;
@@ -126,6 +136,7 @@ import search from "./Search.vue";
         top:0;  
         background-color:white;
         z-index: 100;
+        height: 20px;
         box-shadow: 0 0px 5px rgba(0,0,0,0.1), 0 0px 5px rgba(0,0,0,0.1);
     }
     .navbar__logo {

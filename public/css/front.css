@@ -2,7 +2,7 @@
   --headings-color: rgba(182, 70, 95, 255);
   --text-color: rgba (0, 0, 0, 255);
   --background-color: rgba(247, 247, 247, 0.8);
-  --light-color: rgba(230, 230, 230, 1);
+  --light-color: rgba(250, 250, 250, 1);
   --dark-background-color: rgba(147, 6, 32, 255);
   --headings-font: "Alice", serif;
   --text-font: "Nunito", sans-serif;
@@ -85,7 +85,7 @@ p {
 .form-control {
   border-radius: 5px;
   border: solid 1px var(--headings-color);
-  background-color: var(--background-color);
+  background-color: var(--light-color);
   padding: 10px;
   font-family: var(--text-font);
 }
@@ -93,7 +93,7 @@ p {
 button,
 .comment-toggler {
   color: var(--headings-color);
-  background-color: var(--background-color);
+  background-color: var(--light-color);
   border: 1px solid var(--headings-color);
   border-radius: 5px;
   padding: 10px;
@@ -112,7 +112,7 @@ button:hover {
 
 .button-publish {
   color: var(--headings-color);
-  background-color: var(--background-color);
+  background-color: var(--light-color);
 }
 
 #discussion {
