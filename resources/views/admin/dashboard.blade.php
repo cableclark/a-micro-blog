@@ -31,8 +31,6 @@
                             
                                 <i> {{$post->created_at->format("F j, Y")}} </i>
                                 </p>
-
-                                
                             
                         </div>
 
