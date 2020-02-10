@@ -15,8 +15,6 @@
 </head>
 <body>
     <div id="app">
-            <div class="dashboard--container">
-                @include('layouts.dashnav')
                 <main>
                     @yield('content')
                 </main>

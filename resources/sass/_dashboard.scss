@@ -2,6 +2,7 @@
   --background-color: rgba(230,230, 230);
   --link-color: rgba(0,120, 250);
   --dark-link-color: rgb(2, 99, 202);
+  --nav-background: rgb(22, 22, 22);
   --headings-font: 'Alice', serif;
   --text-font: 'Nunito', sans-serif;
 }
@@ -9,18 +10,32 @@
 body {
   overflow-x: hidden;
   margin: 0;
+  color: white;
+  font-family: var(--text-font);
+ 
 }
 
 a {
   color: var(--link-color);
+  text-decoration: none;
 }
 
-.dashwrapper {
+p {
+  color: var(--nav-background);
+  font-size: 0.8em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0.2em;
 }
 
 /******************/
 /* Dashboard menu*/ 
 /******************/
+nav {
+  background-color:var(--nav-background)
+}
+
 .dashboard--button {
   position: fixed;
   top: 1em;
@@ -31,11 +46,12 @@ a {
   width: 50%;
   height: 100vh;
   margin: 0px;
-  background-color:var(--background-color);padding: 1em 1em;
+  padding: 1em 1em;
   position: absolute;
   left: -60%;
   top: 0;
   z-index: 1100;
+  box-shadow: 0 1px 5px rgb(255, 252, 252), 3px 1px 5px rgba(0,0,0,0.1);
 }
 
 .dashboard--navbar__active {
@@ -64,9 +80,9 @@ a {
 
 }
 
-.dash-container{
+.dash--container{
   margin: 1em;
-  display: flex;
+
 }
 
 
@@ -76,16 +92,25 @@ button {
   background-color: var(--dark-link-color);
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 2em;
-  box-shadow: 0 1px 5px rgb(255, 252, 252), 0 0px 5px rgba(0,0,0,0.1);
+  margin: 0.5em;
+  box-shadow: 0 1px 5px rgb(255, 252, 252), 3px 1px 5px rgba(0,0,0,0.1);
   transition: all 0.3s ease-out;
 }
+
+button > a {
+  color: white;
+} 
 
 button:hover {
   background-color:var(--link-color); 
   color: white;
   cursor: pointer;
 }
+
+.button-danger {
+  background-color: red;
+  border: none;
+} 
 
 /******************/
 /*  Login area   */ 
@@ -96,15 +121,18 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
 .login--card {
-  box-shadow: 0 0px 5px rgb(255, 252, 252), 0 0px 2px rgba(0,0,0,0.1);
+  color: black;
+  box-shadow: 0 1px 5px rgb(255, 252, 252), 3px 1px 5px rgba(0,0,0,0.1);
   padding: 2em;
   margin: 1em;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 80%;
+  height: 300px;
 }
 .login--card--header {
   font-family: var(--text-font);
@@ -112,9 +140,11 @@ button:hover {
 } 
 
 .login--card--body {
+  flex-grow: 4;
   font-family: var(--text-font);
   display:flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 100%;
 }
 
@@ -125,6 +155,41 @@ button:hover {
   margin-bottom: 1em;
 }
 
+/******************/
+/*  Card styles   */ 
+/*****************/
+
+.card--container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 0 1px 5px rgb(255, 252, 252), 3px 1px 5px rgba(0,0,0,0.1);
+  padding: 1em;
+  border-radius: 5px;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 350px;
+}
+
+
+.card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+} 
+
+.card--button {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 
 @media screen and (min-width: 600px) {
 
@@ -132,10 +197,64 @@ button:hover {
 /*  Login area   */ 
 /*****************/
 
-.login--card  {
-  max-width: 400px;
-}
-
-
+  .login--card  {
+    max-width: 400px;
+  }
 
 }
+
+@media screen and (min-width: 900px) {
+
+  .dashboard--container {
+    display:grid;
+    grid-template-columns: 20% 80%; 
+  }
+
+  nav {
+    grid-column: 1/2;
+    position: sticky;
+    display: flex;
+    box-shadow: 0 1px 5px rgb(255, 252, 252), 1px 2px 2px rgba(0,0,0, 0.5);
+  }
+
+  .dashboard--navbar {
+    position: sticky; 
+    width: 100%;
+    padding: 0;
+    
+  }
+
+  .dash--container {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 4em;
+    max-width: 1024px;
+    
+  }
+
+  .dashboard--button { 
+    display: none;
+  }
+
+  .card { 
+    max-width: 300px;
+  }
+
+
+
+}
+
+@media screen and (min-width: 1440px) {
+  .dashboard--container {
+    display:grid;
+    grid-template-columns: 15% 85%; 
+  }
+
+  .dash--container {
+
+    max-width: 1400px;
+    
+  }
+  
+  }

@@ -2,7 +2,7 @@
 
 <div class="dash-container">
 
-    <div class="title m-b-md">
+    <div class="">
         <h2>{{ $title }}</h2>
     </div>
                 
@@ -32,7 +32,7 @@
        <div class="form-group">
             <div class="custom-file">
                 <label for="FormControlFile"> Featured image: </label>
-                <input type="file"  name="image"  class="custom-file-input" id="customFile">
+                <input type="file" name="image"  class="custom-file-input" id="customFile">
                 <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
         </div>

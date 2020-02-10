@@ -1,4 +1,4 @@
-@extends("layouts.dashboard")
+@extends("layouts.login")
 
 @section('content')
 <div class="login--container">
@@ -8,7 +8,7 @@
         <form class="login--card--body" method="POST" action="{{ route('login') }}">
             @csrf
 
-            <label for="email" >{{ __('Емејл адреса') }}</label>
+            <label for="email" >{{ __('Емејл адреса:') }}</label>
 
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -19,7 +19,7 @@
             @enderror
         
 
-            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Лозинка') }}</label>
+            <label for="password" class="">{{ __('Лозинка:') }}</label>
 
         
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -41,12 +41,12 @@
                     
 
             
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="">
                 {{ __('Продолжи') }}
             </button>
 
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a class="" href="{{ route('password.request') }}">
                     {{ __(' Си ја заборави лозинката ...пак?') }}
                 </a>
             @endif
