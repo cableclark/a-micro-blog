@@ -31,7 +31,7 @@ h4,
 h5,
 h6,
 p {
-  margin: 0.2em;
+  font-family: var(--text-font);
 }
 
 /******************/
@@ -48,6 +48,10 @@ nav {
   position: fixed;
   top: 1em;
   right: 1em;
+  background-color: white;
+  border: unset;
+  color: var(--link-color);
+  box-shadow: 0 0px 5px #fffcfc, 0px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .dashboard--navbar {
@@ -63,26 +67,54 @@ nav {
 }
 
 .dashboard--navbar h3 {
-  font-size: 0.9em;
+  font-size: 0.8em;
   text-align: center;
 }
 
 .dashboard--navbar ul {
   list-style: none;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
 }
 
 .dashboard--navbar li {
-  margin: 2em 0;
+  margin: 1em 0;
+  font-size: 1.1em;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: start;
+          align-items: flex-start;
 }
 
 .dashboard--navbar a {
   font-size: 0.9em;
   text-decoration: none;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
   color: var(--link-color);
 }
 
 .dash--container {
   margin: 1em;
+  margin-top: 60px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.admin-icon {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 1em;
 }
 
 button {
@@ -110,6 +142,23 @@ button:hover {
 .button-danger {
   background-color: red;
   border: none;
+}
+
+.form {
+  color: black;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+}
+
+.form-control {
+  width: 97%;
 }
 
 /******************/
@@ -200,12 +249,11 @@ button:hover {
           flex-direction: column;
   -webkit-box-pack: space-evenly;
           justify-content: space-evenly;
-  max-width: 350px;
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }

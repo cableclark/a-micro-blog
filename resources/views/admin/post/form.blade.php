@@ -1,18 +1,15 @@
 {{--  Recieves three parameters $title, $action, $method $title_value, $body_value, $route --}}
 
-<div class="dash-container">
-
-    <div class="">
-        <h2>{{ $title }}</h2>
-    </div>
-                
+<div class="dash--container form">
+  
+    <h2>{{ $title }}</h2>
+      
     <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
         {{$method}}
-        
-        <div class="form-group">
+        <div class="text-input">
             <label for="exampleFormControlFile1"> Title: </label>
             <input class="form-control" type="text" name="title" value="{{$title_value}}"> 
         </div>
@@ -20,36 +17,29 @@
         @component('globalComponents.errors', ["error"=>"title"])                
         @endcomponent
 
-        <div class="form-group">
+       <div class="textinput">
             <label for="exampleFormControlTextarea1"> Post: </label>
             <editor name="body" value= "{{$body_value}}">
             </editor>
         </div>
-
+       
         @component('globalComponents.errors', ["error"=>"body"])                 
         @endcomponent
 
-       <div class="form-group">
-            <div class="custom-file">
-                <label for="FormControlFile"> Featured image: </label>
-                <input type="file" name="image"  class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-        </div>
+        <label for="FormControlFile"> Featured image: </label>
+        <input type="file" name="image"  class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+    
         
-        <div class="form-group"> 
-            <image-drawer>
-            </image-drawer>  
-        </div>
-
+        <image-drawer>
+        </image-drawer>  
+       
         @component('globalComponents.errors', ["error"=>"image"])
         @endcomponent
-
-        <div class="form-group d-flex bd-highlight mb-3">
-            <button  type="submit" name ="published" class="btn btn-primary mr-3 p-2 bd-highlight" value = "0">Save as Draft</button>
-            <a href= "{{$route}}"><button type="button" class="btn btn-danger p-2 bd-highlight">Cancel</button></a>
-            <button type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight" value = "1">Publish</button>
-        </div>
+        
+        <button  type="submit" name ="published" value = "0">Save as Draft</button>
+        <a href= "{{$route}}"><button type="button">Cancel</button></a>
+        <button type="submit" name ="published" value = "1">Publish</button>
 
     </form>  
   

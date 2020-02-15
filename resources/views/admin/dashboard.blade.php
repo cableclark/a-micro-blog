@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="dash--container">
+     
     <a href="{{route('create-post')}}"> <button class="" > Create new </button></a>
+    
     <div class="card--container">
         
         @foreach($posts as $post) 
