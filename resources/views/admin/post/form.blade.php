@@ -10,15 +10,15 @@
 
         {{$method}}
         <div class="text-input">
-            <label for="exampleFormControlFile1"> Title: </label>
+            <label for="title"> Title: </label>
             <input class="form-control" type="text" name="title" value="{{$title_value}}"> 
         </div>
             
         @component('globalComponents.errors', ["error"=>"title"])                
         @endcomponent
 
-       <div class="textinput">
-            <label for="exampleFormControlTextarea1"> Post: </label>
+       <div class="text-input">
+            <label for="body"> Post: </label>
             <editor name="body" value= "{{$body_value}}">
             </editor>
         </div>
@@ -28,8 +28,7 @@
 
         <label for="FormControlFile"> Featured image: </label>
         <input type="file" name="image"  class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
-    
+       
         
         <image-drawer>
         </image-drawer>  
@@ -38,7 +37,7 @@
         @endcomponent
         
         <button  type="submit" name ="published" value = "0">Save as Draft</button>
-        <a href= "{{$route}}"><button type="button">Cancel</button></a>
+        <a href= "{{$route}}"><button type="buttonr" class=" button-danger">Cancel</button></a>
         <button type="submit" name ="published" value = "1">Publish</button>
 
     </form>  

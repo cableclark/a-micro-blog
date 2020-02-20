@@ -83,6 +83,7 @@ import moment from 'moment';
     overflow: hidden;
     border-radius: 5px;
     margin: auto 0;
+    
 
 }
 

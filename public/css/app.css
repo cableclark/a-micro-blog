@@ -78,8 +78,9 @@ nav {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  -webkit-box-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding-left: 20px;
 }
 
 .dashboard--navbar li {
@@ -249,6 +250,14 @@ button:hover {
           flex-direction: column;
   -webkit-box-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.001);
+          transform: scale(1.001);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card img {
@@ -316,7 +325,11 @@ button:hover {
   }
 
   .card {
-    max-width: 300px;
+    max-width: 250px;
+  }
+
+  .form-control {
+    width: 98%;
   }
 }
 
@@ -328,6 +341,14 @@ button:hover {
 
   .dash--container {
     max-width: 1400px;
+  }
+
+  .card {
+    max-width: 300px;
+  }
+
+  .form {
+    max-width: 900px;
   }
 }
 
