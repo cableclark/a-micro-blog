@@ -2,7 +2,7 @@
 
 @section("content") 
         
-<div class="content">
+<div class="dash--container form">
 
     <form action = {{route("save-image")}} method="POST" enctype="multipart/form-data">
 

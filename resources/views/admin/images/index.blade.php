@@ -1,18 +1,18 @@
-@extends("layouts.app")
+@extends("layouts.dashboard")
 
 @section("content") 
         
-<div class="content">
+<div class="dash--container">
     <div>
         <div>
             <h1>Images</h1> 
         </div>
          <a href= "{{route('upload-image')}}"><button type="button" class="btn btn-success mt-2">Upload</button></a>
-        <div class= "d-flex flex-row flex-wrap">
+        <div class= "card--container">
         
             @forelse ($images as $image) 
 
-            <div class="pr-2 pt-2 d-flex flex-column justify-content-between ">
+            <div class="card">
                 <img class="img" src="{{asset("/storage/" . $image->path)}}" title = "{{$image->name}}">
             
                 <form action="{{action('ImagesController@destroy', $image->id)}} " method="post"> 

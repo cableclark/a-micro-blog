@@ -40,10 +40,6 @@ p {
 
 /******************/
 
-nav {
-  background-color: var(--nav-background);
-}
-
 .dashboard--button {
   position: fixed;
   top: 1em;
@@ -55,15 +51,24 @@ nav {
 }
 
 .dashboard--navbar {
+  position: fixed;
+  top: 0px;
   width: 50%;
   height: 100vh;
   margin: 0px;
   padding: 1em 1em;
-  position: absolute;
-  left: -60%;
-  top: 0;
+  -webkit-transform: translateX(-101%);
+          transform: translateX(-101%);
+  background-color: black;
   z-index: 1100;
   box-shadow: 0 1px 5px #fffcfc, 3px 1px 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.dashboard--navbar__active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 
 .dashboard--navbar h3 {
@@ -307,6 +312,8 @@ button:hover {
     position: sticky;
     width: 100%;
     padding: 0;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 
   .dash--container {
