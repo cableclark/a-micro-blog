@@ -1,6 +1,6 @@
 <template>
     <div>
-       <button @click.prevent="open=!open" class="btn btn-primary mr-3 p-2 bd-highlight"> Insert Image </button>
+       <button @click.prevent="open=!open"> Вметни слика </button>
        <transition name="show">
        <div v-if="open" class="drawer"> 
            <div class="image-container">
@@ -12,7 +12,7 @@
                 name="image.name" 
                 class="drawer-image"> 
             </div>
-            <button @click.prevent="open=!open"  class="btn btn-danger p-2 bd-highligh"> Cancel </button>
+            <button @click.prevent="open=!open"> Cancel </button>
        </div>
        </transition>
     </div>
@@ -62,7 +62,8 @@ import { EventBus } from './EventBus.js';
 <style>
 .drawer {
     background-color: rgba(12,12,12, 0.8);
-    position: absolute;
+    position: fixed;
+    overflow: scroll;
     top: 0;
     left: 0vw;
     width: 100vw;

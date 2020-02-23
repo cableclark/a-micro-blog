@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Alice|Nunito&display=swap);:root {
+@import url(https://fonts.googleapis.com/css?family=Alice|Nunito&display=swap);@charset "UTF-8";
+
+:root {
   --background-color: rgba(230,230, 230);
   --link-color: rgba(0,120, 250);
   --dark-link-color: rgb(2, 99, 202);
@@ -48,6 +50,7 @@ p {
   border: unset;
   color: var(--link-color);
   box-shadow: 0 0px 5px #fffcfc, 0px 1px 5px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
 }
 
 .dashboard--navbar {
@@ -124,6 +127,7 @@ p {
 }
 
 button {
+  display: inline-block;
   color: var(--background-color);
   border: 1px solid var(--link-color);
   background-color: var(--dark-link-color);
@@ -165,6 +169,38 @@ button:hover {
 
 .form-control {
   width: 97%;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.images-flex {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+input[type=file] {
+  color: white;
+  width: 190px;
+}
+
+.custom-file-input::before {
+  content: "\418\437\431\435\440\438   \433\43B\430\432\43D\430   \441\43B\438\43A\430";
+  display: inline-block;
+  color: var(--background-color);
+  border: 1px solid var(--link-color);
+  background-color: var(--dark-link-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0.5em;
+  box-shadow: 0 1px 5px #fffcfc, 3px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
 }
 
 /******************/

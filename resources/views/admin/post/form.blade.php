@@ -26,19 +26,18 @@
         @component('globalComponents.errors', ["error"=>"body"])                 
         @endcomponent
 
-        <label for="FormControlFile"> Featured image: </label>
-        <input type="file" name="image"  class="custom-file-input" id="customFile">
-       
-        
-        <image-drawer>
-        </image-drawer>  
-       
+        <div class="images-flex">
+            <input type="file" name="image" class="custom-file-input">
+            <image-drawer>
+            </image-drawer>  
+       </div>
         @component('globalComponents.errors', ["error"=>"image"])
         @endcomponent
-        
-        <button  type="submit" name ="published" value = "0">Save as Draft</button>
-        <a href= "{{$route}}"><button type="buttonr" class=" button-danger">Cancel</button></a>
-        <button type="submit" name ="published" value = "1">Publish</button>
+        <div class="images-flex">
+            <button  type="submit" name ="published" value = "0">Save as Draft</button>
+            <a href= "{{$route}}"><button type="buttonr" class="button-danger">Cancel</button></a>
+            <button type="submit" name ="published" value = "1">Publish</button>
+        </div>
 
     </form>  
   

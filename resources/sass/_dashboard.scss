@@ -42,7 +42,8 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: white;
   border: unset;
   color: var(--link-color);
-  box-shadow: 0 0px 5px rgb(255, 252, 252), 0px 1px 5px rgba(0,0,0,0.5  );
+  box-shadow: 0 0px 5px rgb(255, 252, 252), 0px 1px 5px rgba(0,0,0,0.5);
+  z-index: 10000;
 }
 
 .dashboard--navbar {
@@ -109,6 +110,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 button {
+  display: inline-block;
   color:var(--background-color); 
   border: 1px solid var(--link-color);
   background-color: var(--dark-link-color);
@@ -144,6 +146,39 @@ button:hover {
 
 .form-control {
   width: 97%;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+ 
+}
+
+.images-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type=file] {
+  color: white;
+  width: 190px;
+  
+}
+.custom-file-input::before {
+  content: 'Избери главна слика';
+  display: inline-block;
+  color:var(--background-color); 
+  border: 1px solid var(--link-color);
+  background-color: var(--dark-link-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0.5em;
+  box-shadow: 0 1px 5px rgb(255, 252, 252), 3px 1px 5px rgba(0,0,0,0.1);;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  
 }
 /******************/
 /*  Login area   */ 

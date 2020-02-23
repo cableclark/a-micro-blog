@@ -7139,7 +7139,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.drawer {\n    background-color: rgba(12,12,12, 0.8);\n    position: absolute;\n    top: 0;\n    left: 0vw;\n    width: 100vw;\n    height: 100vh;\n    color:white;\n    display: -webkit-box;\n    display: flex;\n    z-index: 100000000;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n}\n.image-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    flex-wrap: wrap;\n}\n.drawer-image {\n    width: 150px;\n    margin: 1rem;\n}\n.show-enter-active, .show-leave-active {\n  -webkit-transition: -webkit-transform .5s;\n  transition: -webkit-transform .5s;\n  transition: transform .5s;\n  transition: transform .5s, -webkit-transform .5s;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  -webkit-transform: translate(100vw);\n          transform: translate(100vw);\n}\n\n", ""]);
+exports.push([module.i, "\n.drawer {\n    background-color: rgba(12,12,12, 0.8);\n    position: fixed;\n    overflow: scroll;\n    top: 0;\n    left: 0vw;\n    width: 100vw;\n    height: 100vh;\n    color:white;\n    display: -webkit-box;\n    display: flex;\n    z-index: 100000000;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n}\n.image-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    flex-wrap: wrap;\n}\n.drawer-image {\n    width: 150px;\n    margin: 1rem;\n}\n.show-enter-active, .show-leave-active {\n  -webkit-transition: -webkit-transform .5s;\n  transition: -webkit-transform .5s;\n  transition: transform .5s;\n  transition: transform .5s, -webkit-transform .5s;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  -webkit-transform: translate(100vw);\n          transform: translate(100vw);\n}\n\n", ""]);
 
 // exports
 
@@ -58869,7 +58869,6 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "btn btn-primary mr-3 p-2 bd-highlight",
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -58877,7 +58876,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v(" Insert Image ")]
+        [_vm._v(" Вметни слика ")]
       ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "show" } }, [
@@ -58904,7 +58903,6 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-danger p-2 bd-highligh",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
