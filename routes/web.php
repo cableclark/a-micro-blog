@@ -24,7 +24,7 @@ Route::get('/about', function () {
 
 });
 
-
+Route::post('/search','PostsController@search');
 
 Route::get('/getimages', 'ImagesController@getImages')->name('get-image');
 

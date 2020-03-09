@@ -7,9 +7,9 @@
            
            <FeaturedPost class="featured" v-if="published.firstPost" :post="published.firstPost" v-bind:key="published.firstPost.id"></FeaturedPost>
            
-            <article v-for="post in published.posts"  v-bind:key="post.id">
+            <div v-for="post in published.posts" v-bind:key="post.id">
                 <PostCard :post="post"></PostCard> 
-            </article>
+            </div>
         
         </transition-group>
 
@@ -70,27 +70,19 @@
     transform: translate(5vw);
 }
 
-article  {
-    border-radius: 5px;
-    margin: 0.3em; 
-    transition: all 0.3s ease-out;
-    background-color: var(--background-color);
-    box-shadow: 0 0px 5px rgb(255, 252, 252), 0 0px 5px rgba(0,0,0,0.3);
-}
 
 
 @media screen and (min-width: 600px) { 
     .grided{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;;
     }
      .featured {
         grid-column:1/-1;    
     }
+    
     .article{
-        grid-column: 1;   
-        border-radius: 5px;
-        margin: 1em 1em; 
         transition: all 0.3s ease-out;
     }
 
@@ -111,9 +103,6 @@ article  {
         margin: 0 auto;
     }
 
-    article{
-        margin: 1em;
-    }
 
 }
 

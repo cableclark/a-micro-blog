@@ -1,6 +1,6 @@
 <template>
     <transition-group appaer name="show">
-        <div class="card" v-bind:key="post.id">
+        <div class="article card" v-bind:key="post.id">
             <div class="card_img-contianer">
                 <a v-bind:href="link"> <img :src="image" alt="Card image cap"> </a>
             </div>
@@ -94,8 +94,8 @@ h2 {
         flex-direction: column;
         margin: 0 auto;
         padding: 1.2em;
-
     }
+
     h2 {
         font-size: 1.4em;
         margin-bottom: 5px;

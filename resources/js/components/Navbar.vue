@@ -121,7 +121,6 @@ import search from "./Search.vue";
   opacity: 0;
 }
 
-
 @media screen and (min-width: 600px) { 
     .navbar__menu {
         font-size: 0.9em;

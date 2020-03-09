@@ -174,6 +174,16 @@ class PostsController extends Controller
 
         return redirect("admin");;
     }
+    
+    public function search(Request $request)
+    {
+        $validated = $request->validate([
+            'search'=>"required"
+        ]);
 
+        $posts = Post::whereRaw('MATCH (title, body) AGAINST (?)' , array($validated))->get();
+
+        return view("posts.search")->with(['posts' => $posts]);
+    }
 
 }

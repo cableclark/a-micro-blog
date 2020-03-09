@@ -2459,11 +2459,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       active: false,
-      passive: true
+      passive: true,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   mounted: function mounted() {
@@ -7101,7 +7103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.show-enter-active, .show-leave-active {\n    -webkit-transition: all .4s ease-out;\n    transition: all .4s ease-out;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n    -webkit-transform: translate(5vw);\n            transform: translate(5vw);\n}\narticle  {\n    border-radius: 5px;\n    margin: 0.3em; \n    -webkit-transition: all 0.3s ease-out; \n    transition: all 0.3s ease-out;\n    background-color: var(--background-color);\n    box-shadow: 0 0px 5px rgb(255, 252, 252), 0 0px 5px rgba(0,0,0,0.3);\n}\n@media screen and (min-width: 600px) {\n.grided{\n        display: grid;\n        grid-template-columns: 1fr 1fr;\n}\n.featured {\n        grid-column:1/-1;\n}\n.article{\n        grid-column: 1;   \n        border-radius: 5px;\n        margin: 1em 1em; \n        -webkit-transition: all 0.3s ease-out; \n        transition: all 0.3s ease-out;\n}\n.article:nth-last-of-type(2) {\n        grid-column: 2;\n}\n.article:hover {\n        -webkit-transform: scale(1.001);\n                transform: scale(1.001);\n        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\n}\n}\n@media (min-width: 778px) {\n.container {\n        max-width: 1024px;\n        margin: 0 auto;\n}\narticle{\n        margin: 1em;\n}\n}\n@media screen and (min-width: 900px) {\n.grided{\n        display: grid;\n        grid-template-columns: 1fr 1fr 1fr;\n}\n.featured {\n        grid-column:1/-1;\n}\n.article{\n        grid-column: 1;\n}\n.article:nth-last-of-type(2) {\n        grid-column: 2;\n}\n.article:nth-last-of-type(3) {\n        grid-column: 3;\n}\n}\n@media screen and (min-width: 1024px) {\n}\n@media screen and (min-width: 1200px) {\n}\n@media (min-width: 1800px) {\n.container {\n            margin: 0 auto;\n            max-width: 1224px;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.show-enter-active, .show-leave-active {\n    -webkit-transition: all .4s ease-out;\n    transition: all .4s ease-out;\n}\n.show-enter, .show-leave-to /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n    -webkit-transform: translate(5vw);\n            transform: translate(5vw);\n}\n@media screen and (min-width: 600px) {\n.grided{\n        display: grid;\n        grid-template-columns: 1fr 1fr;\n        grid-gap: 1em;\n}\n.featured {\n        grid-column:1/-1;\n}\n.article{\n        -webkit-transition: all 0.3s ease-out;\n        transition: all 0.3s ease-out;\n}\n.article:nth-last-of-type(2) {\n        grid-column: 2;\n}\n.article:hover {\n        -webkit-transform: scale(1.001);\n                transform: scale(1.001);\n        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\n}\n}\n@media (min-width: 778px) {\n.container {\n        max-width: 1024px;\n        margin: 0 auto;\n}\n}\n@media screen and (min-width: 900px) {\n.grided{\n        display: grid;\n        grid-template-columns: 1fr 1fr 1fr;\n}\n.featured {\n        grid-column:1/-1;\n}\n.article{\n        grid-column: 1;\n}\n.article:nth-last-of-type(2) {\n        grid-column: 2;\n}\n.article:nth-last-of-type(3) {\n        grid-column: 3;\n}\n}\n@media screen and (min-width: 1024px) {\n}\n@media screen and (min-width: 1200px) {\n}\n@media (min-width: 1800px) {\n.container {\n            margin: 0 auto;\n            max-width: 1224px;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -58793,7 +58795,7 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.published.posts, function(post) {
             return _c(
-              "article",
+              "div",
               { key: post.id },
               [_c("PostCard", { attrs: { post: post } })],
               1
@@ -59074,7 +59076,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("transition-group", { attrs: { appaer: "", name: "show" } }, [
-    _c("div", { key: _vm.post.id, staticClass: "card" }, [
+    _c("div", { key: _vm.post.id, staticClass: "article card" }, [
       _c("div", { staticClass: "card_img-contianer" }, [
         _c("a", { attrs: { href: _vm.link } }, [
           _c("img", { attrs: { src: _vm.image, alt: "Card image cap" } })
@@ -59159,7 +59161,12 @@ var render = function() {
             }
           },
           [
-            _c("form", { attrs: { method: "POST", action: "" } }, [
+            _c("form", { attrs: { method: "POST", action: "/search" } }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrf }
+              }),
+              _vm._v(" "),
               _c("input", {
                 attrs: { type: "text", name: "search", autofocus: "" }
               }),

@@ -6,7 +6,8 @@
         </div>
         <transition>
             <div class="search--form" @click.self="passive = !passive, active = !active" :class="{ searchActive:active, searchPassive:passive}" ref="search">
-            <form method="POST" action="">
+            <form method="POST" action="/search">
+                <input type="hidden"  name="_token" :value="csrf">
                 <input type="text" name="search" autofocus>
                 <button for="search">Барај</button>
             </form>
@@ -20,7 +21,8 @@
         data: function () {
             return {
                 active: false,
-                passive: true
+                passive: true,
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         },
         mounted() {
