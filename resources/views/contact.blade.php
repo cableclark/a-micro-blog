@@ -7,15 +7,15 @@
 
         <div class="comments-form">
                     
-                <form action="contact.blade.php" method="POST">
+                <form action="{{ route('send-mail')}}" method="POST">
 
                     @csrf
 
                     <div class="form-group">
 
-                        <label for="email">{{ __('Име:') }}</label>
+                        <label for="name">{{ __('Име:') }}</label>
                         
-                        <input id="email" type="text" class="form-control  @error('text') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="text" autofocus>
+                        <input id="name" type="text" class="form-control  @error('text') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="text" autofocus>
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -41,9 +41,9 @@
 
                     <div class="form-group">
 
-                        <label for="email">{{ __('Наслов:') }}</label>
+                        <label for="title">{{ __('Наслов:') }}</label>
                         
-                        <input id="email" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="text" autofocus>
+                        <input id="title" type="text" class="form-control  @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="text" autofocus>
 
                         @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -66,9 +66,8 @@
                         @endforeach      
                     @endif    
 
-
                     <div class="form-group d-flex bd-highlight mb-3">
-                        <button class="button-publish" type="submit" name ="published" class="btn btn-primary ml-auto p-2 bd-highlight">Прати</button>
+                        <button class="button-publish" type="submit" >Прати</button>
                     </div>
 
             </form>  

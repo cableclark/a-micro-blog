@@ -177,9 +177,7 @@ input[type=file] {
 .custom-file-input:hover::before {
   border-color: black;
 }
-.custom-file-input:active::before {
-  
-}
+
 /******************/
 /*  Login area   */ 
 /*****************/
@@ -261,7 +259,6 @@ input[type=file] {
   flex-direction: column;
   
 }
-
 
 @media screen and (min-width: 600px) {
 

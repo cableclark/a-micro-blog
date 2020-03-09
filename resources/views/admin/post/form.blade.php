@@ -31,8 +31,10 @@
             <image-drawer>
             </image-drawer>  
        </div>
+
         @component('globalComponents.errors', ["error"=>"image"])
         @endcomponent
+        
         <div class="images-flex">
             <button  type="submit" name ="published" value = "0">Save as Draft</button>
             <a href= "{{$route}}"><button type="buttonr" class="button-danger">Cancel</button></a>

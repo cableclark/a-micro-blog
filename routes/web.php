@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Mail\MessageSent;
 
 Auth::routes();
 
@@ -24,11 +25,6 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/contact', function () {
-
-    return view('contact');   
-
-});
 
 Route::get('/getimages', 'ImagesController@getImages')->name('get-image');
 
@@ -59,9 +55,11 @@ Route::post('admin/image/create', 'ImagesController@save')->name('save-image');
 Route::delete('/image/{id}', 'ImagesController@destroy')->name('delete-image');
 
 
-
-
 Route::post('comments', 'CommentsController@save')->name('send-comment');
+
+Route::get('/contact', 'ContactFormController@create');
+
+Route::post('/contact', 'ContactFormController@store')->name("send-mail");
  
 
     
